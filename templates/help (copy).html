@@ -1,0 +1,603 @@
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0PGB0RSKC4');
+</script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css1/main.css')  }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/bootstrap.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='phytocat.png')  }}" />
+  <title>PhytoCAT</title>
+
+	
+
+
+  <!-- Custom styles for this template -->
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/sticky-footer.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+        $(document).on('click','.click_me',function(e){
+          e.preventDefault();
+          var search_val = $(this).attr('data-value');
+          
+          $('#search').val(search_val);
+        });
+        $(document).on('click','.btn-delete',function(e){
+          $('#search').val('');
+        });
+        
+      });
+  </script>   
+
+<style>
+
+
+
+.click_me {
+  background: linear-gradient(to right, #f97171 0%, #f99192 28%, #8ad6cc 91%, #b2eee6 100%);
+   
+/*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+  
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  
+
+}
+  .navbar-custom {
+    width: 100%;
+    margin: 0;
+padding: 0;
+display:flex;
+flex-direction:row;
+
+    background: #556B2F !important;
+
+   /* background: linear-gradient(to right, #f97171 0%, #f99192 28%, #8ad6cc 91%, #b2eee6 100%);*/
+
+   /* background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );*/
+/*   background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+/*  background: rgb(34,195,145);*/
+/*background: linear-gradient(0deg, rgba(34,195,145,1) 0%, rgba(45,196,253,1) 100%);*/
+/*background-color: #74EBD5;*/
+
+/*background-color : #556B2F; */
+/*background: repeating-linear-gradient(90deg, #006600  , #00cc00 7%, #004d00 15%);*/
+
+/*background:linear-gradient(to top, transparent, #006600 100%),#004d00 repeating-linear-gradient(90deg, #006600  , #00cc00 7%, #004d00 15%);*/
+
+
+/*background-image: repeating-linear-gradient(90deg,red,yellow 7%,green 10%);*/
+
+/*background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);*defaultt/
+
+/*background-image: linear-gradient(to right #16A085 0%, #F4D03F 28%, #F4D03F 55%, #16A085 100%);*/
+
+/*background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);*/
+
+
+/*background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);*/
+
+
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+  color: navy;
+  padding: 0.4rem 0.4rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+  border:1px solid #bab86c;  
+
+
+}.navbar-custom {
+  background-color: navy;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: red;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+  background-color: #ff5500;
+}
+.navbar-custom .dropdown-item {
+  color: #bab86c;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #333333;
+  background-color: rgba(255,255,255,.5);
+}
+.alert-error {
+  padding: 12px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  margin-bottom: 1px;
+  color: red;
+  text-align: center;
+}
+.alert-info {
+  padding: 2px;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: black;
+  text-align: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 40px;
+   background-color:#FF0066; 
+   font-size: 25px;
+   color:peachpuff;
+   text-align: center;
+} 
+/*.body{padding: 10px;}*/
+h1 {
+    font-family: Papyrus, fantasy;
+}
+
+
+table,  th,  td {
+    border:1px solid ;
+    border-bottom: 1px solid #C8C8C8;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.8em;
+    table-layout: fixed; 
+}
+th  {
+background-color: #C5E0B4 	;
+color: #800000;
+font-weight: bold;
+font-size: medium;
+}
+td  {
+
+color: black;
+font-size: small;
+}
+
+
+
+
+td:nth-child(8)	{  word-break: break-all; }
+.primer tbody>td>:nth-child(6){   word-break: break-all; }
+
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)	{ background-color:#fff; }
+
+
+
+
+
+
+tr:hover            { background-color: #ffff99;}
+
+
+#bull{ 
+            list-style: none; 
+        } 
+  
+        
+        #bull::before{ 
+  
+            font-size: large;
+            content: "\27A2"; 
+        }
+
+
+h1 {
+    font-family: Papyrus, fantasy;
+}
+
+
+
+</style>
+
+  </head>
+  <body>
+   
+  
+    <nav class="navbar navbar-expand-lg navbar-custom bg-primary py-0 nav-upper">
+      <div class="container-fluid" style="margin-top: -10px;padding-bottom: -10px;"> 
+      <!-- Brand/logo      -->
+
+        
+      <a class="navbar-brand" href="#" style="margin-top: 0px;">
+        <img src="/static/logo.png" alt="" width="70" height="90">
+      </a>
+          
+
+
+
+         <a class="navbar-brand text-center" style="margin-left: 100px;"  href="{{ url_for('index') }}"> <h1>PhytoCAT </h1> </br><p style="margin-top: -40px;"><u>PhytoC</u>hemicals <u>A</u>ffordable <u>T</u>herapeutics for Breast Cancer  </p>
+        <!--<img src="/static/phytocat.png" alt="logo" style="width:80px;height:50px; "> -->
+      </a>
+      
+      <a class="navbar-brand navbar-right" href="#" style="margin-top: -30px;">
+        <img src="/static/igib.png" alt="" width="100" height="50">
+      </a>
+
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light  py-0 nav-lower" style="background-color:#556B2F ;">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+
+
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0" > 
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "> <span style="background-color: #355E3B		;">Home</span></a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('faq1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">FAQs</span></a>
+        </li>  
+
+
+       <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('contact1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;"><span style="background-color: #355E3B		;">Contact Us</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('help1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">Help</span></a>
+        </li>
+
+
+      </ul>
+      </div>
+    </div>
+
+
+      </div>
+      <!-- Links -->
+      
+    </nav>
+
+
+    <div id="container-fluid" style="height: 70px;background-color: #A9A9A9	;" >  
+
+  
+    <!--<h4 style="background-color: whitesmoke;color: #84377D;  width: 120px;margin-left: 650px;    ">    Search By   </h4> -->
+    
+  <div class="row justify-content-md-center" style="padding-top:12px ;">
+        
+         <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('form') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >Phytochemical Name  </h6> </a>
+        </div> 
+         <div class="col-md-auto " >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('form2') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >
+            
+            Gene Name</h6> </a>
+        </div>
+
+        <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('form1') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >  Plant Name  </h6> </a>
+        </div> 
+        <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('alphabatical') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  > Alphabetically </h6> </a>
+        </div>
+        <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('catagory',catagory='All') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >
+             Entity List   </h6> </a>
+         </div>
+     
+    
+         
+
+    </div> 
+
+      
+
+
+</div>
+
+    <div id="container-fluid" style="margin-bottom: 10px;padding-top: 30px; padding-left: 0px;margin-left: 70px;margin-right: 70px;" >
+
+
+
+
+    
+
+
+
+   <div class="row justify-content-md-center" >
+
+
+    <div class="table-responsive-md" style="overflow: fixed;">
+
+      <table class="table  table-hover table-bordered align-middle">
+                      <thead>
+                            <tr class="table-primary"></tr>
+                            <tr><th scope="col">Home</th>
+                            <th scope="col">Search</th>
+                            <th scope="col">Browse</th>
+
+                            <th scope="col">Gene name</th>
+      
+                            <th scope="col">Classification</th>
+                            <th scope="col">Cross references</th>
+                            
+                            
+                          </tr>
+                      </thead>
+                      <tbody>
+                      <tr >
+                          <td scope="row"><strong>PhytoCAT </strong></td>
+                          <td scope="col">    <ul id="list" style="text-align: left;"> <li id="bull" >
+                            Phytochemical name </li> </ul></td>
+                          <td scope="col"><ul id="list" style="text-align: left;"> 
+                            <li id="bull" > Alphabetically</li> 
+                            <li id="bull">Plant name</li> 
+                            <li id="bull"> Entity list</li> </ul>
+                            
+                          </td>
+                          <td scope="col">PMIDs and evidences for genes affected by phytochemicals, plant extracts or essential oil.</td>
+                          <td scope="col">All entities in the PhytoCAT database are categorized  into fourteen categories displayed with button of each on home page.</td>
+                          <td scope="col"><ul id="list" style="text-align: left;">
+                            <li id="bull" >PubMed   </li>
+                            <li id="bull">PubChem</li>
+                            <li id="bull"> Plants of the world online (POWO)</li>
+
+
+				  </ul>
+</td>
+                          </tr>
+                          
+                                      </tbody>
+                      
+                          </table>
+      
+</div>
+</div>
+<p class="lead">The PhytoCAT database contains phytochemical compounds, plant extracts, and some combination compounds as well against breast cancer. The knowledge on these 2,147 entities is categorized into compound details, phytochemical source, molecular target and study type, phytochemical efficacy, additional information and PMIDs, external links, and safety of the compound. PhytoCAT provides details on in-vivo studies as well as protein targets along with evidences that these naturally occurring substances have been shown to inhibit in cancer cell lines.  </p>
+                          
+<img src="./static/Selection_001.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+
+
+
+<p class="lead" style="margin-top: 45px;">
+<strong> SEARCH </strong> <br>
+There are two methods for locating the required chemical. If you know the name of the compound already, utilize the Search by “Phytochemical Name” option. If not, you can search for the intended compound by “Plant Name” if name of source plant is known.
+</p>
+
+<div class="row justify-content-md-center" >
+
+<h3 style="background-color: #f4b183;text-align: center;  width: 50%;"> 1. Search by Phytochemical Name  </h3>
+</div>
+
+<div class="row justify-content-md-center" ></div>
+
+<div class="row justify-content-md-center" >
+<img src="./static/f1.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+
+<!--<h1 style="margin-top: 600px;text-align: center;">  &#8595;</h1>-->
+
+<img src="./static/f2.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+
+</div>
+
+<div class="row justify-content-md-center" >
+
+<h3 style="background-color: #f4b183;text-align: center;  width: 50%;margin-top:auto;margin-bottom: 50px;"> Compound’s detail information
+</h3>
+</div>
+
+
+
+
+<div class="row justify-content-md-center" >
+
+<h3 style="background-color: #f4b183;text-align: center;  width: 50%;  "> 2. Plant Name
+</h3>
+</div>
+<div class="row justify-content-md-center" >
+<img src="./static/f3.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+
+<img src="./static/f4.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+</div>
+<div class="row justify-content-md-center" >
+
+<h3 style="background-color: #f4b183;text-align: center;  width: 60%;margin-top:auto;margin-bottom: 50px;"> All compounds and extracts from the searched Plant Name
+
+</h3>
+</div>
+
+<p class="lead" style="margin-top: 45px;">
+  <strong> BROWSE </strong> <br>
+  There are three methods for browsing the phytochemicals: Alphabetical, Entity list, Class of phytochemicals. 
+</p>
+
+<div class="row justify-content-md-center" >
+
+
+  <h3 style="background-color: #f4b183;text-align: center;  width: 50%;"> 1.  Search Phytochemicals alphabetically
+  </h3>
+  </div>
+  <div class="row justify-content-md-center" >
+    <img src="./static/f5.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+    
+    <img src="./static/f6.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+    </div>
+    <div class="row justify-content-md-center" >
+    
+    <h3 style="background-color: #f4b183;text-align: center;  width: 60%;margin-top:auto;margin-bottom: 50px;"> All PhytoCAT entities with letter C
+    
+    </h3>
+    </div>
+      
+    <div class="row justify-content-md-center" >
+
+
+      <h3 style="background-color: #f4b183;text-align: center;  width: 50%;"> 2.  Search Phytochemicals by Entity List
+      </h3>
+      </div>
+      <div class="row justify-content-md-center" >
+        <img src="./static/f7.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+        
+        <img src="./static/f8.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+        </div>
+        <div class="row justify-content-md-center" >
+        
+        <h3 style="background-color: #f4b183;text-align: center;  width: 50%;margin-top:auto;margin-bottom: 50px;"> Compound’s detail information
+        
+        </h3>
+        </div>
+          
+          </div>
+            
+          <div class="row justify-content-md-center" >
+      
+      
+            <h3 style="background-color: #f4b183;text-align: center;  width: 50%;"> 3. Search Phytochemicals by categories 
+            </h3>
+            </div>
+            <div class="row justify-content-md-center" >
+              <img src="./static/f9.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="..." style="width: 250px;height:400px ;">
+              
+              <img src="./static/f10.png" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+              </div>
+              <div class="row justify-content-md-center" >
+              
+              <h3 style="background-color: #f4b183;text-align: center;  width: 50%;margin-top:auto;margin-bottom: 50px;"> All the phytochemicals of particular class
+              
+              </h3>
+              </div>
+          
+
+
+
+</div>
+
+
+
+  
+
+
+    <!--  <div class="footer" >       <span  >
+        Powered by , CSIR-IGIB</span> <br><span style="font-size: 20px;">Visitors : {{visitors}}</span>  
+       </div> -->
+    
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted"  >
+  <!-- Section: Links  -->
+
+
+<section class="d-flex justify-content-center justify-content-lg-between" style="background-color:#BEBEBE	; ">
+  <div class="container text-center text-md-start mt-1" >
+    <!-- Grid row -->
+    <div class="row mt-3" style="margin-bottom: -40px;">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+          <i class="fas fa-gem me-3"></i>Related Database
+        </h6>
+        <p>
+         <a href="https://cb.imsc.res.in/imppat/"  >  IMPPAT </a> 
+        </p>
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+          Related Links
+        </h6>
+        <p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/" >PubMed</a>
+        </p>
+        <p>
+          <a href="https://pubchem.ncbi.nlm.nih.gov/" >PubChem</a>
+        </p>
+                </div>
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+Database information          </h6>
+        <p>
+          <a href="#!" >Download Data</a>
+        </p>
+                </div>
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4"  style="color: black;">Contact</h6>
+        <p><i class="fas fa-home me-3"></i> CSIR-IGIB, Mathura Road, New Delhi</p>
+       
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+</section>
+<!-- Section: Links  -->
+
+<!-- Copyright -->
+<div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05);text-decoration: underline;">
+Website copyright @ Institute of Genomics and Integrative Biology. All Right Reserved.
+  
+<!--<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>-->
+</div>
+<!-- Copyright -->
+</footer>
+
+
+</body> 
+</html>

@@ -1,0 +1,444 @@
+
+<html>
+    <head>
+         <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-0PGB0RSKC4');
+  </script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="author" content="colorlib.com">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='css1/main.css')  }}" rel="stylesheet" />
+      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet"  href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='phytocat.png')  }}" />
+    <title>PhytoCAT</title>
+  
+  
+    <script  src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+  
+  <style>
+  
+  .click_me {
+  /*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+    /*background: linear-gradient(to right, #772953 0%, # 28%, #EB6536 100%,#E95420 100% );*/
+    background: linear-gradient(to right, #E95420 0%, #EB6536 28%, #925375 100%,#772953 100% );
+  
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+  
+  }
+  .navbar-custom {
+    width: 100%; 
+    background: #556B2F !important;
+
+   /* background: linear-gradient(to right, #f97171 0%, #f99192 28%, #8ad6cc 91%, #b2eee6 100%);*/
+
+   /* background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );*/
+/*   background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+/*  background: rgb(34,195,145);*/
+/*background: linear-gradient(0deg, rgba(34,195,145,1) 0%, rgba(45,196,253,1) 100%);*/
+/*background-color: #74EBD5;*/
+
+/*background-color : #556B2F; */
+/*background: repeating-linear-gradient(90deg, #006600  , #00cc00 7%, #004d00 15%);*/
+
+/*background:linear-gradient(to top, transparent, #006600 100%),#004d00 repeating-linear-gradient(90deg, #006600  , #00cc00 7%, #004d00 15%);*/
+
+
+/*background-image: repeating-linear-gradient(90deg,red,yellow 7%,green 10%);*/
+
+/*background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);*defaultt/
+
+/*background-image: linear-gradient(to right #16A085 0%, #F4D03F 28%, #F4D03F 55%, #16A085 100%);*/
+
+/*background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);*/
+
+
+/*background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);*/
+
+
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+  color: navy;
+  padding: 0.4rem 0.4rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+  border:1px solid #bab86c;  
+
+
+}.navbar-custom {
+  background-color: navy;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: red;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+  background-color: #ff5500;
+}
+.navbar-custom .dropdown-item {
+  color: #bab86c;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #333333;
+  background-color: rgba(255,255,255,.5);
+}
+.alert-error {
+  padding: 12px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  margin-bottom: 1px;
+  color: red;
+  text-align: center;
+}
+.alert-info {
+  padding: 2px;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: black;
+  text-align: center;
+}  
+  
+  
+  
+  table.dataframe, .dataframe th, .dataframe td {
+      border:1px solid ;
+      border-bottom: 1px solid #C8C8C8;
+      border-collapse: collapse;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 40px;
+      font-size: 0.8em;
+      table-layout: fixed; 
+  }
+  
+  table,  th,  td {
+      border:1px solid ;
+      border-bottom: 1px solid #C8C8C8;
+      border-collapse: collapse;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 40px;
+      font-size: 0.8em;
+      table-layout: fixed; 
+  }
+  .sgrna th  {
+  background-color:#e4e4b1;
+  color: #800000;
+  font-weight: bold;
+  
+  }
+  .sgrna td  {
+  
+  color: black;
+  }
+  
+  .primer th {
+  background-color: #e4e4b1;
+  color: #800000;
+  }
+  
+  .primer td {
+  
+  color: blue;
+  }
+  
+  
+  
+  td:nth-child(8)	{  word-break: break-all; }
+  .primer tbody>td>:nth-child(6){   word-break: break-all; }
+  
+  tr:nth-child(odd)		{ background-color:#eee; }
+  tr:nth-child(even)	{ background-color:#fff; }
+  
+  
+  
+  .primer tbody>tr>:nth-child(-n+6)   {
+   color:rgb(92, 4, 95);
+  
+  }
+  
+  
+  
+  
+  tr:hover            { background-color: #ffff99;}
+  
+  
+  .footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     height: 40px;
+   background-color:#FF0066; 
+
+     font-size: 25px;
+     color:peachpuff;
+     text-align: center;
+  } 
+  
+  h1 {
+    font-family: Papyrus, fantasy;
+}
+  
+  
+  
+  </style>
+  
+    </head>
+    <body>
+  
+
+      
+
+
+      <nav class="navbar navbar-expand-lg navbar-custom bg-primary py-0 nav-upper">
+        <div class="container-fluid" style="margin-top: -10px;padding-bottom: -10px;"> 
+        <!-- Brand/logo      -->
+  
+          
+        <a class="navbar-brand" href="#" style="margin-top: 0px;">
+          <img src="/static/logo.png" alt="" width="70" height="90">
+        </a>
+            
+  
+  
+  
+           <a class="navbar-brand text-center" style="margin-left: 100px;"  href="{{ url_for('index') }}"> <h1>PhytoCAT </h1> </br><p style="margin-top: -40px;"><u>PhytoC</u>hemicals <u>A</u>ffordable <u>T</u>herapeutics for Breast Cancer  </p>
+          <!--<img src="/static/phytocat.png" alt="logo" style="width:80px;height:50px; "> -->
+        </a>
+        
+        <a class="navbar-brand navbar-right" href="#" style="margin-top: -30px;">
+          <img src="/static/igib.png" alt="" width="100" height="50">
+        </a>
+  
+      </nav>
+      <nav class="navbar navbar-expand-lg navbar-light  py-0 nav-lower" style="background-color:#556B2F ;">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+  
+  
+  
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0" > 
+   
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "> <span style="background-color: #355E3B		;">Home</span></a>
+          </li>  
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('faq1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">FAQs</span></a>
+          </li>  
+  
+  
+         <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('contact1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;"><span style="background-color: #355E3B		;">Contact Us</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('help1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">Help</span></a>
+          </li>
+  
+  
+        </ul>
+        </div>
+      </div>
+  
+  
+        </div>
+        <!-- Links -->
+        
+      </nav>     <!-- <div id="mySeqViewer1" class="SeqViewerApp" data-autoload> <a href="?embedded=true&appname=testapp1&id=NC_000001"></a> </div>-->
+   
+     
+     
+    <div class="s010" >
+          
+      <div class="table-responsive-md" style="overflow: fixed; padding-top: 0px; margin-top: -150px;margin-left: 60px;margin-right: 30px; padding-left: 10px;font-size: 25px; font-weight: bold; font-family: Poppins;" >
+            
+          <div class="container-fluid"  >
+            
+              <div class="row justify-content-md-center"style="margin-left:50px;margin-top: 0px;  ">
+                
+               </div>
+          </div>
+          <p style="color:#ff7d4d;font-size: 21px;font-weight: bold;">Search Phytochemicals  alphabetically</p>
+
+          <ul class="list-group list-group-horizontal" style=" display:flex; flex-flow:row wrap;justify-content:center;">
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='A') }}" target="_blank">A</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='B') }}" target="_blank">B</a> </button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='C') }}" target="_blank">C</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='D') }}" target="_blank">D</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='E') }}" target="_blank">E</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='F') }}" target="_blank">F</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='G') }}" target="_blank">G</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='H') }}" target="_blank">H</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='I') }}" target="_blank">I</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='J') }}" target="_blank">J</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='K') }}" target="_blank">K</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='L') }}" target="_blank">L</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='M') }}" target="_blank">M</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='N') }}" target="_blank">N</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='O') }}" target="_blank">O</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='P') }}" target="_blank">P</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='Q') }}" target="_blank">Q</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='R') }}" target="_blank">R</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='S') }}" target="_blank">S</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='T') }}" target="_blank">T</a></button> </li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='U') }}" target="_blank">U</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='V') }}" target="_blank">V</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='W') }}" target="_blank">W</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='X') }}" target="_blank">X</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='Y') }}" target="_blank">Y</a></button></li>
+            <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='Z') }}" target="_blank">Z</a></button></li>
+                  </ul>
+                </br></br>
+              <ul class="list-group list-group-horizontal">
+
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='1') }}" target="_blank">1</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='2') }}" target="_blank">2</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='3') }}" target="_blank">3</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='4') }}" target="_blank">4</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='5') }}" target="_blank">5</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='6') }}" target="_blank">6</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='7') }}" target="_blank">7</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='8') }}" target="_blank">8</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='9') }}" target="_blank">9</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='α') }}" target="_blank">α</a></button></li>
+                  <li class="list-group-item"><button type="button" class="btn btn btn-link  btn-sm" data-mdb-ripple-color="dark"><a href="{{ url_for('table',alpha='β') }}" target="_blank">β</a></button></li>
+              </ul>    
+<!--
+          <ul >     
+   <li>  A </a></li>
+   <li><a href="{{ url_for('table',alpha='B') }}" target="_blank"> B </a>   </li>
+   <li><a href="{{ url_for('table',alpha='C') }}" target="_blank"> C </a>   </li>
+           </ul>  
+    -->         
+      </div>
+  
+    </div>
+  
+              
+            
+      </div>
+      <script src="static/js1/extention/choices.js"></script>
+      <script type="text/javascript">// <![CDATA[
+        function loading(){
+          $("#loading()").show();
+    
+    
+            $("#main").hide();       
+        }
+    // ]]></script>
+
+<footer class="text-center text-lg-start bg-body-tertiary text-muted"  >
+  <!-- Section: Links  -->
+
+
+<section class="d-flex justify-content-center justify-content-lg-between" style="background-color:#BEBEBE	; ">
+  <div class="container text-center text-md-start mt-1" >
+    <!-- Grid row -->
+    <div class="row mt-3" style="margin-bottom: -40px;">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+          <i class="fas fa-gem me-3"></i>Related Database
+        </h6>
+        <p>
+         <a href="https://cb.imsc.res.in/imppat/"  >  IMPPAT </a> 
+        </p>
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+          Related Links
+        </h6>
+        <p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/" >PubMed</a>
+        </p>
+        <p>
+          <a href="https://pubchem.ncbi.nlm.nih.gov/" >PubChem</a>
+        </p>
+                </div>
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+Database information          </h6>
+        <p>
+          <a href="{{ url_for('static', filename='Download_data_phytoCAT.tsv')  }}" >Download Data</a>
+        </p>
+                </div>
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4"  style="color: black;">Contact</h6>
+        <p><i class="fas fa-home me-3"></i> CSIR-IGIB, Mathura Road, New Delhi</p>
+       
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+</section>
+<!-- Section: Links  -->
+
+<!-- Copyright -->
+<div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05);text-decoration: underline;">
+Website copyright @ Institute of Genomics and Integrative Biology. All Right Reserved.
+  
+<!--<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>-->
+</div>
+<!-- Copyright -->
+</footer>
+
+
+    </body> 
+  </html>
+  

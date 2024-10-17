@@ -1,0 +1,601 @@
+<html>
+  <head>
+       <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0PGB0RSKC4');
+</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css1/main.css')  }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/bootstrap.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='crisnpr11.svg')  }}" />
+  <title>CriSNPr</title>
+
+  <!-- Custom styles for this template -->
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/sticky-footer.css" rel="stylesheet">
+
+<style>
+
+
+
+.click_me {
+/*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+  /*background: linear-gradient(to right, #772953 0%, # 28%, #EB6536 100%,#E95420 100% );*/
+  background: linear-gradient(to right, #E95420 0%, #EB6536 28%, #925375 100%,#772953 100% );
+
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+
+}
+  .navbar-custom {
+    background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );
+
+/*    background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);*/
+    /*background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+
+
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+  color: blueviolet;
+  padding: 1rem 1rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+  border:1px solid whitesmoke;  
+
+
+}.navbar-custom {
+  background-color: blueviolet;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: red;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+  background-color: #ff5500;
+}
+.navbar-custom .dropdown-item {
+  color: #ffffff;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #333333;
+  background-color: rgba(255,255,255,.5);
+}
+.alert-error {
+  padding: 12px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  margin-bottom: 1px;
+  color: red;
+  text-align: center;
+}
+.alert-info {
+  padding: 2px;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: black;
+  text-align: center;
+}
+
+table.dataframe, .dataframe th, .dataframe td {
+    border:1px solid ;
+    border-bottom: 1px solid #C8C8C8;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.8em;
+    table-layout: fixed; 
+}
+
+
+.sgrna th  {
+background-color:#e4e4b1;
+color: #800000;
+font-weight: bold;
+
+}
+.sgrna td  {
+
+color: black;
+}
+
+.primer th {
+background-color: #e4e4b1;
+color: #800000;
+}
+
+.primer td {
+
+color: blue;
+}
+
+
+
+td:nth-child(8)	{  word-break: break-all; }
+.primer tbody>td>:nth-child(6){   word-break: break-all; }
+
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)	{ background-color:#fff; }
+
+
+
+.primer tbody>tr>:nth-child(-n+6)   {
+ color:rgb(92, 4, 95);
+
+}
+
+
+
+
+tr:hover            { background-color: #ffff99;}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 50px;
+   background-color: #924D8B; 
+   font-size: 25px;
+   color:peachpuff;
+   text-align: center;
+} 
+img {
+    width: 1400px; /* You can set the dimensions to whatever you want */
+    height: auto;
+    max-width:100% ;
+    object-fit:cover ;
+}
+</style>
+
+  </head>
+  <body>
+   
+    <nav class="navbar navbar-expand-sm navbar-custom bg-primary  fixed-top">
+      <!-- Brand/logo       <a class="navbar-brand" href="http://jatayuv2.igib.res.in/">
+        <img src="/static/images/jatayu1.png" alt="logo" style="width:60px; "> 
+      </a>-->
+      <ul class="navbar-nav">
+        <li class="nav-item"  style="padding-left: 50px;"  >
+          <a class="nav-link" href="{{ url_for('index') }}" style="color: blueviolet; padding: 2px;" > 
+            <img src= "/static/crisnpr11b.png" alt="CriSNPr" style="width: 60px;height: 60px;"> 
+           </a>
+         </li>
+        </ul>
+      
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+       
+           <li class="nav-item">
+             <a class="nav-link" href="{{ url_for('instructions') }}" style="color: #772953;font-size: 30px;">Instructions</a>
+           </li>
+       
+
+   
+           <!--<li class="nav-item">
+             <a class="nav-link" href="#"></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#"></a>
+           </li> -->
+         </ul>
+    </nav>
+
+       
+
+    <div class="s010" style="margin-bottom: 10px;">
+        <div class="container" style="margin-top: 160px;" >
+<h3> What is CriSNPr? </h3>
+
+<p class="lead"   > <strong>CRISPR Diagnostics (CRISPRDx) </strong>for CRISPR-based SNV detection refers to a 
+  broad category of biochemical for the rapid and effortless detection of a target SNV in a polynucleotide
+   sequence. These assays are majorly designed around the ability of Cas effectors to distinguish nucleic acid 
+   sequences on the basis of mismatches at defined positions within the crRNA. Several Cas effectors such as 
+   <em>Lb</em>Cas12a, Cas14a, <em>Aa</em>Cas12b, and <em>en/Fn</em>Cas9 exhibit nucleotide position-specific 
+   mismatch sensitivity and have previously been employed for SNV detection (1-7). <strong>CriSNPr</strong> 
+   is a web server that helps a user to design position-specific mismatch sensitive modified crRNAs for 
+   <em>en/Fn</em>Cas9, <em>Lw</em>Cas13a, <em>Aa</em>Cas12a, <em>Lb</em>Cas12b, and Cas14a. Additionally,
+    it provides specific primer sequences which when used together with the gRNAs for every Cas diagnostic
+     pipeline, can be advanced for developing rapid CRISPR-based SNV diagnostic assays. CriSNPr begins by mapping
+      the provided SNV information either as an ID or a sequence to the selected genome. Once mapped, a custom
+       scripted algorithm searches for the required protospacer adjacent motif (PAM) near the SNV fitting with 
+       criteria for any of the previously reported crRNA mismatch sensitive positions as mentioned in table 1. 
+       Using CriSNPr, the modified crRNAs are also checked and reported for any off-targets within the target 
+       genome. In addition, the amplification primers are also pre-filtered for off-targets within the human, bacterial and viral genomes available to date at the NCBI genome database.
+</p>
+   
+<p class="lead"> <strong>Table 1, Cas effectors with their mismatch sensitive crRNA nucleotide positions.</strong> </p>
+    <div class="table-responsive-md" style="overflow: fixed;" >
+
+<table class="table  table-hover table-bordered align-middle">
+                <thead >
+                      <tr class="table-primary"></tr>
+                      <th scope="col">Cas effector</th>
+                      <th scope="col">PAM/PFS</th>
+                      <th scope="col">Spacer Length (bp) </th>
+                      <th scope="col">Cleavage target               </th>
+
+                      <th scope="col">Mismatch sensitive positions (From PAM)           </th>
+                      <th scope="col">Reference         </th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <th scope="row"><em>Lw</em>Cas13a</th>
+                    <td scope="col">NA*</td>
+                    <td scope="col">22-28</td>
+                    <td scope="col">RNA</td>
+                    <td scope="col">3&4, 3&5</td>
+                    <td scope="col">(Cameron et al., 2018)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><em>Lb</em>Cas12a</th>
+                        <td scope="col">TTTN</td>
+                        <td scope="col">16-18</td>
+                        <td scope="col">ssDNA/dsDNA</td>
+                        <td scope="col">1st -7td</td>
+                        <td scope="col"> (Li et al., 2018)</td>
+                    </tr>
+                <tr>
+                    <th scope="row">Cas14a</th>
+                            <td scope="col">NA</td>
+                            <td scope="col">20</td>
+                            <td scope="col">ssDNA/dsDNA*</td>
+                            <td scope="col">11&12, 12</td>
+                            <td scope="col">                                (Harrington et al., 2018)
+                            </td>
+                    </tr>
+                <tr>
+                                <th scope="row"><em>Aa</em>Cas12b</th>
+                                <td scope="col">TTN</td>
+                                <td scope="col">20</td>
+                                <td scope="col">ssDNA/dsDNA</td>
+                                <td scope="col">1&4, 1&5, 5&8, 4&16, 4&11, 5&11, 16&19, *</td>
+                                <td scope="col">  (Teng et al., 2019)</td>
+                   </tr>
+                            
+                <tr>
+                                    <th scope="row"><em>Fn/enFn</em>Cas9</th>
+                                    <td scope="col">NGG/NRG or NGR</td>
+                                    <td scope="col">20</td>
+                                    <td scope="col">dsDNA</td>
+                                    <td scope="col">2&6, 16&19, 17, 18, 19</td>
+                                    <td scope="col">                                         (Azhar et al., 2021; Kumar et al., 2021, Acharya et al., 2021)
+                                    </td>
+            
+            
+                                    </tr>
+
+                                </tbody>
+                
+                    </table>
+
+
+    <p class="lead">For clinical relevance, the current version of CriSNPr provides a readymade pipeline for CRISPR-based detection of pathogenic and non-pathogenic mutations for all reported human nucleotide variants (dbSNP) and SARS CoV-2 variants of interest/concern (VOI/VOC). Nevertheless, the crRNA designs and the detection assays can also be developed de novo variants of choice with or without any clinical relevance present within human or SARS-CoV-2 genomes. The current version of CriSNPr contains reference SNVs information from human dbSNP and SARS-CoV-2 CNCB-NGDC (China National Center for Bioinformation-The National Genomics Data Center), respective databases.  </p>
+    <h3> Directions for Input and output </h3>
+<p class="lead">CriSNPr, online web-server queries for the SNV of interest and provides users with information regarding all Cas systems that can be used to detect that particular SNV,  and the required modified crRNA and primer design parameters based on gRNA design principles available in the literature for each Cas protein </p>
+<ol type="i">
+  <p class="lead"> The current interface of CriSNPr has been divided into three subdomains featuring, 
+        
+
+        <li>  Human, with ready-made targetable clinically relevant SNPs from the human dbSNP database
+        </li>
+        <li>  SARS-CoV-2, with ready-made targetable SNVs within the SARS-CoV-2 genome 
+</li>
+        <li>  Seq-CriSNPr, to be used for sequence-based search of any reported targetable SNV with/without clinical any clinical relevance within the human or SARS-CoV-2 genomes
+        </li>
+    </p>
+</ol>
+<!--<img src="data:image/png;base64, {{ plot }}" class="img-fluid" alt="Responsive Image" style="width: 100%;    overflow: hidden;" >        -->
+
+<img src="{{ url_for('static', filename='front.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end" alt="...">
+
+</div>
+<p class="lead">Fig. 1, CriSNPr’s first user page with choice for human, SARS-CoV-2, and Seq-CriSNPr SNV targetable algorithms.</p>
+<p class="lead" style="font-style: italic;"><strong>i) HUMAN; for targeting human SNPs/SNVs with pathological relevance </strong></p>
+ <p class="lead"> As the current version of CriSNPr contains reference SNVs information from the human dbSNP database, a user can query for designed sequences using the dbSNP rsID for humans.<br>  </p>
+ <img src="{{ url_for('static', filename='human_front.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+<p class="lead"> Fig. 2, Human SNV rsID input window with examples for user’s guide  </p>
+<p class="lead">After a user’s entry, the CriSNPr web-server first tries to authenticate the entered input as a valid input by mapping and visualizing SNVs/SNPs, for related information like an organism of origin, genome coordinates, gene ID, disease association, reported allele, and their population-specific frequency distribution. The targetability of a queried SNP/SNV by all included Cas systems is simultaneously checked and only the Cas systems with positive results are shown with the required information.</p>
+<img src="{{ url_for('static', filename='human_rs_results1.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+
+<ol type="a">
+   <p class="lead"> Fig. 3, Targetable Human SNV rsID output window with the following information:   
+  
+      
+
+      <li>  SNV validation, with information such as an organism of origin, user-provided rsID, reported alleles, genome coordinates, gene ID, disease association
+      </li>
+      
+
+      <li>  Population-specific frequency distribution of different alleles reported at that genomic position 
+</li>
+      <li> Cas system selection panel highlights the selected option, and results are shown for it
+
+      </li>
+      <li> SNV targeting modified crRNA sequences with other related information such as reference WT sequences, genomic positions, strand orientation, targeted allelic change, and the list of off-targets against the modified crRNA.
+      </li>
+      <li> Top 5 PCR amplicon primer-pair with annealing temperature, GC%, and self-complementary (TH) score as provided by the Primer3Plus (8)
+      </li>
+   
+  </p>
+</ol>
+<p class="lead">Since the position of mismatches differs between different Cas proteins used for designing the diagnostic pipeline, CriSNPr provides also returns information highlighting the position of mutant nucleotide (red color) and synthetic nucleotide (needed depending on the Cas systems used, green color) within a crRNA sequence.
+
+ <br> CriSNPr also gives information about the off-targets for the SNV targeting modified crRNA sequences. To identify potential off-targets against the modified crRNAs, CriSNPr takes the advantage of the previously reported offline versatile algorithm of Cas-OFFinder (9). Using this CriSNPr reports off-target information against a modified crRNA as a list containing chromosome location and coordinates of the off-targets, DNA strand orientation, and the number of off-target sequences with up to 4 nucleotide mismatches, etc. 
+<br>All the primer pairs provided by CriSNPr are also pre-filtered for off-targets with up to 2 nucleotide mismatches against representative bacterial genome database (NCBI), virus genome database (NCBI) (Brister et al., 2015), and human genome/transcriptome (GENCODE GRCh38) (Frankish et al., 2019). Considering SNV detection with clinical relevance or diagnosis, only the primer sequences with very high specificity to minimize possibilities of non-specific amplicons are provided by the CriSNPr. In addition, as FnCas9/enFnCas9 can generate a gel-based readout upon target cleavage, the amplicon primers are specially designed to give cleaved DNA products with a size difference of almost two times than other, to discriminate between wild-type and mutant sequences on an agarose gel.  
+<br> 
+Subsequently, if any SNV is targetable by other Cas effectors too, CriSNPr reports the designed crRNA and primer sequences for that Cas effector too, once selected by the user.   </p>
+<p class="lead" style="font-style: italic;"><strong>ii) SARS-CoV-2; for targeting reported SARS-CoV-2 variants
+</strong></p>
+<p class="lead">CriSNPr also contains SNV information from the SARS-CoV-2 CNCB-NGDC (China National Center for Bioinformation-The National Genomics Data Center) database. With no prior sequence information about an SNV, a user can access CRISPRdx design-based mutant amino acid position for SARS-CoV-2.
+<br>The SARS-CoV-2 interface considers standard variation nomenclature requiring a gene name followed by a “_” (underscore), reference amino acid, position at protein, and alternative amino acid. For example, S_N501Y, S_E484K, etc. Upon finding a match in the CriSNPr database of targetable SNVs, it again gives out SNV identity information along with variation frequencies, crRNAs, and primer oligos for SNV detection in the variant SARS-CoV-2 lineages by the Cas systems integrated into the CriSNPr.  
+</p>
+<img src="{{ url_for('static', filename='Covid_front.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+<p class="lead">Fig. 4, SARS-CoV-2 mutation input window with examples for user’s guide</p>
+<img src="{{ url_for('static', filename='Covid_result.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+<ol type="a">
+   <p class="lead"> Fig. 5, Targetable SARS-CoV-2 mutation output window with the following information:    
+  
+   
+
+      <li>  Mutation validation, with information such as an organism of origin, user-provided mutation, reported alleles, genome coordinates, and gene name.
+      </li>
+      
+
+      <li>  Genomic-level frequency distribution of mutation containing SARS-CoV-2 genomes deposited at GISAID database. 
+</li>
+      <li> Cas system selection panel highlights the selected option, and results are shown for it
+
+      </li>
+      <li> Mutation targeting modified crRNA sequences with other related information such as reference WT sequences, genomic positions, strand orientation, variation change, and the list of off-targets against the modified crRNA.
+      </li>
+      <li> Top 5 PCR amplicon primer-pair with annealing temperature, GC%, and self-complementary (TH) score as provided by the Primer3Plus
+      </li>
+      </ul>
+    </p>
+    </ol>
+   
+
+
+
+<p class="lead"> Like the human interface, the SARS-CoV-2 interface also provides all the necessary information required for developing CRISPR-based variant detection assays. </p>
+<img src="{{ url_for('static', filename='Covid_result_aacas12b.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+<img src="{{ url_for('static', filename='Covid_result_other_cas.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+<p class="lead">Fig. 6, Targetable SARS-CoV-2 S_G339D mutation output window with modified crRNA designed for AaCas12b and Cas14a. </p>
+<p class="lead" style="font-style: italic;"><strong>iii) Seq-CriSNPr; for targeting unreported or novel human and SARS-CoV-2 SNVs
+</strong>   </p>
+<p class="lead">Since the previous two interfaces report curated CriSNPr crRNA information from the CriSNPr database, the outputs are immediately available but are only limited to clinically relevant human or SARS-CoV-2 SNPs/SNVs. To target any previously reported or novel SNP or SNV present in human or SARS-CoV-2 that are not previously available in CriSNPr’s database, the Seq-CriSNPr interface considers a 20 to 30 nucleotides sequence containing the SNP/SNV along with the position and nucleobase identity of SNP/SNV to be targeted within the input sequence. Using this information, Seq-CriSNPr does real-time crRNA and primer oligos design and gives out all the information required for the detection assays.</p>
+<img src="{{ url_for('static', filename='seq_crisnpr_front.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+<p class="lead"> Fig. 7, Seq-CriSNPr input window with examples for user’s guide, with designated input spaces for nucleotide sequence, the position of SNV, and the nucleotide identity. The current version of Seq-CriSNPr also gives the option to choose from human and SARS-CoV-2.</p>
+<img src="{{ url_for('static', filename='seq_crisnpr_results.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end"  alt="...">
+<ol type="a">
+ <p class="lead"> Fig. 8, Targetable non-clinically relevant human SNV output window with the following information:      
+        
+
+      <li>SNV validation, with information such as an organism of origin, available dbSNP rsID, reported alleles, genome coordinates, gene ID any if any disease association.
+      </li>
+      
+
+      <li>  Cas system selection panel highlights the selected option, and results are shown for it
+</li>
+     
+      <li> SNV targeting modified crRNA sequences with other related information such as reference WT sequences, genomic positions, strand orientation, targeted allelic change, and the list of off-targets against the modified crRNA.
+      </li>
+      <li> Top 5 PCR amplicon primer-pair with annealing temperature, GC%, and self-complementary (TH) score as provided by the Primer3Plus
+      </li>
+      
+    </p>
+    </ol>
+   <p class="lead"> Seq-CriSNPr, using the same python flask framework as of CriSNPr, gives sequence-related information similar to CriSNPr but with more user-customizable options to choose a position as well as the identity of the SNV nucleotide within a 20-30 nt query sequence.  </p>
+   <p class="lead"><strong>Useful Notes<br>For designing IVT oligos for gRNA<br></strong> As major of these gRNA designs are for in vitro single nucleobase diagnostics given below are examples for DNA oligos required for individual Cas systems utilized in previously reported protocols.<br>
+    For example, target SNV rs12788013 associated with beta Thalassemia disease   </p>
+    <img src="{{ url_for('static', filename='beta_thala_results.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end" style="margin-bottom: 100px;"  alt="...">
+<p class="lead" > <strong> a) </strong> For <em>Fn/enFn</em>Cas9 (RAY – Rapid variant Assay, Kumar et al., 2021, Acharya et al., 2021)</p>
+<img src="{{ url_for('static', filename='beta_thala_results_fn.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end" style="margin-bottom: 30px;"  alt="...">
+<p class="lead" style="padding-left: 150px;"> Target Wt sequence:  AGATATAGTGTATTTTCC<strong>C</strong>A <strong> <em style="color: orchid;font-size: 25px;">AGG</em><strong> </p>
+  <p class="lead" style="padding-left: 150px;">   Target Mutant sequence: AGATATAGTGTATTTTCC<strong style="color: orangered;font-size: 25px;">G</strong>A <strong> <em style="color: orchid;font-size: 25px;">AGG</em>    </strong> </p>
+    <p class="lead" style="padding-left: 150px;">   Modified crRNA sequence:AGATATAGTGTATT<strong style="color: yellowgreen;font-size: 25px;">A</strong>TCC<strong style="color: orangered;font-size: 25px;">G</strong>A</p>
+    <ul class="list-unstyled">
+      <li>    <p class="lead">For SNVs to be diagnosed by the FnCas9 an additional synthetic nucleotide is added within the crRNA sequence such that it will possess two mismatches towards the target wild-type (Wt) sequences and a single mismatch towards the target mutant sequences.</p></li>
+      <ul>
+      
+        <li><p class="lead"> The modified crRNA sequence obtained from CriSNPr can be ordered as DNA oligos with a T7-RNA Polymerase promoter sequence at the 5’ end and a part of the tracrRNA sequence at the 3’ end. If the crRNA sequence doesn’t start with a G, an additional G is required in the front to get optimal RNA conversion during in vitro transcription (IVT). </p></li>
+      
+      </ul>
+      
+      </ul>
+<p class="lead"> crRNA IVT forward DNA oligo: <br><strong style="color: red;"> 5’ TAATACGACTCACTATA</strong><strong style="color:blue">G</strong><span style="background: yellow;">AGATATAGTGTATT<span style="color: yellowgreen;font-size: 25px;">A</span>TCC<span style="color: orangered;font-size: 25px;">G</span>A</span><strong style="color: brown;">GTTTCAGTTGCTGAATTAT 3’</strong></p>
+<p class="lead"><strong style="color: red;">17 nucleotides T7-RNA Polymerase promoter sequence</strong>
+  <br><strong style="color: blue;">G</strong> - Additional G is only required if the crRNA doesn’t start with a G. <br>
+  Yellow highlighted is the crRNA sequence designed by CriSNPr<br>
+<strong style="color: brown;">19 nucleotides complementary tracrRNA region</strong><br>
+And just the reverse complement sequence of the forward primer is to be ordered as a reverse primer DNA oligo.
+<br><strong>crRNA IVT reverse DNA oligo: <br>
+5’ ATAATTCAGCAACTGAAACTCGGATAATACACTATATCTCTATAGTGAGTCGTATTA 3’</strong>
+</p>
+<ul class="list-unstyled">
+  <li>    <p class="lead">Equimolar annealing of forward and reverse DNA oligos is performed to assemble into a dsDNA template sequence, used for making sgRNA. The assembled template is to be used as a substrate for in vitro transcription by T7 RNA polymerase, using the T7 in vitro transcription kit by following the manufacturer’s instructions.</p></li>
+  <ul>
+  
+    <li><p class="lead"> The CriSNPr generated modified crRNA can also be ordered as single RNA molecules with SNV targeting 20 nucleotides towards 5’ followed by a 19 nucleotide part of tracrRNA. Which, for better shelf life can be end protected by phosphorothioate bonds (*).<br>
+      5’  <span style="background: yellow;">A*G*AUAUAGUGUAUU<strong style="font-size: 25px;color: yellowgreen;">A</strong>UCC<strong style="font-size: 25px;color: orangered;">G</strong>A</span>GUUUCAGUUGCUGAAUU*A*U 3’
+        
+    </p></li>
+  
+  </ul>
+  <li><p class="lead"> Together with crRNA we will also require a tracrRNA, which can be ordered as single RNA molecules end protected by phosphorothioate bonds (*) and labeled with FAM at 3’ end.<br>
+    5’ G*U*AAUUAAUGCUCUGUAAUCAUUUAAAAGUAUUUUGAACGGACCUCUGUUUGACACGUC*U*U – FAM 3’ </p></li>
+<li><p class="lead"> The primers for target amplicons can be ordered the same as provided by the CriSNPr <br>
+  Further, a detailed protocol for the assay is available at <a href="https://elifesciences.org/articles/67130#appendix-1"> https://elifesciences.org/articles/67130#appendix-1</a> </p> </li>
+
+  </ul>
+
+<p class="lead"><strong> b) </strong> Cas14a (DETECTR – DNA Endonuclease-Targeted CRISPR Trans Reporter, Harrington et al., 2018)  </p>
+<img src="{{ url_for('static', filename='beta_thala_results_cas14a.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end" style="margin-bottom: 30px;"  alt="...">
+<p class="lead" style="padding-left: 150px;"> Target Wt sequence:  GTGTATTTTCC<strong>C</strong>AAGGTTTG </p>
+  <p class="lead" style="padding-left: 150px;">   Target Mutant sequence: GTGTATTTTCC<strong style="color: orangered;font-size: 25px;">G</strong>AAGGTTTG </p>
+    <p class="lead" style="padding-left: 150px;">   Modified crRNA sequence:GTGTATTTTCC<strong style="color: orangered;font-size: 25px;">G</strong>AAGGTTTG  </p>
+    <ul class="list-unstyled">
+
+      <li>    <p class="lead">    For SNVs to be diagnosed by the Cas14a the target SNV is just kept at a position of 12 and that is enough to discriminate between wild type and mutant alleles. The crRNA sequence will have one mismatch towards wild-type sequences and no mismatch towards the target mutant sequences.</p></li>
+<ul>
+
+<li><p class="lead"> Cas14a sgRNA can be ordered as RNA molecules with the following tracrRNA and combined crRNA sequences.</p> </li> 
+  
+ <p class="lead">5’ UUCACUGAUAAAGUGGAGAACCGCUUCACCAAAAGCUGUCCCUUAGGGGAUUAGAACUUGAG<br>TGAAGGUGGGCUGCUUGCAUCAGCCUAAUGUCGAGAAGUGCUUUCUUCGGAAAGUAACCCUCG<br>AAACAAAUUCAUUUgaaaGAAUGAAGGAAUGCAAC<span style="background: yellow;">GUGUAUUUUCC<strong style="color: orangered;font-size: 25px;">G</strong>AAGGUUUG</span> 3’</p>  
+<li class="lead">To synthesize sgRNA via IVT, the modified crRNA sequence obtained from CriSNPr can be ordered as DNA oligos with a T7-RNA Polymerase promoter sequence followed by a tracrRNA sequence at the 5’ end and crRNA at the 3’ end.</p> </li> 
+
+</ul>
+
+</ul>
+
+<p class="lead"> crRNA IVT forward DNA oligo: <br>
+  5’ <strong>TAATACGACTCACTATA<span style="color: blue;">G</span></strong>TTCACTGATAAAGTGGAGAACCGCTTCACCAAAAGCTGTCCCTTAGGGGATTAG<br>AACTTGAGTGAA<span style="background:lightblue;">GGTGGGCTGCTTGCATCAGCCTAA</span> 3’ </p>
+ <p class="lead"><strong>17 nucleotides T7-RNA Polymerase promoter sequence</strong> 
+<br><strong style="color:blue">G</strong> – Required additional G if not present at the beginning of the sequences to be in vitro transcribed by T7-RNA Polymerase
+Cyan highlighted is the region complementary to the reverse DNA oligo, after an extension PCR together they form a single dsDNA template to be used for IVT reaction. </p>
+<p class="lead"> crRNA IVT reverse DNA oligo:<br>5'  
+<span style="background: lightblue;">GGTGGGCTGCTTGCATCAGCCTAA</span>TGTCGAGAAGTGCTTTCTTCGGAAAGTAACCCTCGAAACAAAT<br>
+TCATTTgaaaGAATGAAGGAATGCAAC<span style="background: yellow;">GTGTATTTTCC<strong style="color:orangered;font-size: 25px;">G</strong>AAGGTTTG</span>3'<br>
+Reverse complement:<br> CAAACCTTCGGAAAATACACGTTGCATTCCTTCATTCtttcAAATGAATTTGTTTCGAGGGTTACTTTCCGAAGAA<br>AGCACTTCTCGACATTAGGCTGATGCAAGCAGCCCACC<br>
+Yellow highlighted is the crRNA sequence designed by CriSNPr</p>
+<p class="lead">   By using forward and reverse DNA oligos, an overlap extension PCR is performed to assemble smaller DNA fragments into a larger sequence, which was used for making each sgRNA.   
+<br>The assembled template can be used as a substrate for in vitro transcription by T7 RNA polymerase, using the T7 in vitro transcription kit by following the manufacturer’s instructions.</p>
+<p class="lead">Further, a detailed protocol is available at <a href="https://www.science.org/doi/abs/10.1126/science.aav4294">https://www.science.org/doi/abs/10.1126/science.aav4294</a>   </p>
+ <p class="lead"><strong>c)</strong> For <em>Aa</em>Cas12b (CDetection – Cas12b-mediated DNA detection, Teng et al., 2019)  </p>
+ <img src="{{ url_for('static', filename='beta_thala_results_cas12b.png')  }}" class="img-fluid img-thumbnail border border-dark rounded float-end" style="margin-bottom: 30px;"  alt="...">
+ <p class="lead" style="padding-left: 150px;"> Target Wt sequence:<strong><em style="color: orchid;font-size: 25px;">TTT</em></strong>   TCC<strong>C</strong>AAGGTTTGAACTAGCT</p>
+ <p class="lead" style="padding-left: 150px;">   Target Mutant sequence:<strong><em style="color: orchid;font-size: 25px;">TTT</em></strong>   TCC<strong style="color:orangered;font-size: 25px;">G</strong>AAGGTTTGAACTAGCT </p>
+   <p class="lead" style="padding-left: 150px;">   Modified crRNA sequence: TCC<strong style="color:orangered;font-size: 25px;">G</strong>AAGGTT<strong style="font-size: 25px;color: yellowgreen;">A</strong>GAACTAGCT </p>
+   <ul class="list-unstyled">
+    <li>    <p class="lead">  For SNVs to be detected by the AaCas12b the target SNV is just kept at a position of 12 and that is enough to discriminate between wild type and mutant alleles. The crRNA sequence will have one mismatch towards wild-type sequences and no mismatch towards the target mutant sequences.</p></li>
+<ul>
+
+<li><p class="lead"> AaCas12b sgRNA can be ordered as RNA molecules with the following tracrRNA and combined crRNA sequences. </p> </li> 
+                 
+<p class="lead">5’ 5’GUCUAAAGGACAGAAUUUUUCAACGGGUGUGCCAAUGGCCACUUUCCAGGUGGCAAAGCCC<br>GUUGAACUUCAAGCGAAGUGGCAC
+  <span style="background: yellow;">UCC<strong style="color: orangered;font-size: 25px;">G</strong>AAGGUU<strong style="color: yellowgreen;font-size: 25px;">A</strong>GAACUAGCU</span> 3’</p>  
+<li class="lead">To synthesize sgRNA via IVT, the modified crRNA sequence obtained from CriSNPr can be ordered as DNA oligos with a T7-RNA Polymerase promoter sequence followed by a tracrRNA sequence at the 5’ end and crRNA at the 3’ end.</p> </li> 
+
+</ul>
+
+</ul>
+<p class="lead"> crRNA IVT forward DNA oligo:<br>
+  5’ <strong>TAATACGACTCACTATA</strong>GTCTAAAGGACAGAATTTTTCAACGGGTGTGCCAATGGCCACTTT<span style="background: lightblue;">CCAGGTGGCAAAGCCCGTTG</span> 3’
+   <br><br> <strong>17 nucleotides T7-RNA Polymerase promoter sequence</strong> <br>
+  Cyan highlighted is the region complementary to the reverse DNA oligo, after an extension PCR together they form a single dsDNA template to be used for IVT reaction. 
+<br><br>
+crRNA IVT reverse DNA oligo:<br>
+<span style="background: lightblue;">CCAGGTGGCAAAGCCCGTTG</span>AACTTCAAGCGAAGTGGCAC<span style="background: yellow;">TCC<strong style="color: orangered;font-size: 25px;">G</strong>AAGGTT<strong style="color: yellowgreen;font-size: 25px;">A</strong>GAACTAGCT </span>
+<br>Reverse complement:<br> AGCTAGTTCTAACCTTCGGAGTGCCACTTCGCTTGAAGTTCAACGGGCTTTGCCACCTGG
+<br><br><br>Yellow highlighted is the crRNA sequence designed by CriSNPr.<br><br>
+By using forward and reverse DNA oligos, an overlap extension PCR is performed to assemble smaller DNA fragments into a larger sequence, which was used for making each sgRNA.<br>
+The assembled template can be used as a substrate for in vitro transcription by T7 RNA polymerase, using the T7 in vitro transcription kit by following the manufacturer’s instructions.
+<br><br>
+
+Further, a detailed protocol is available at <a href="https://link.springer.com/article/10.1186/s13059-019-1742-z">https://link.springer.com/article/10.1186/s13059-019-1742-z</a>    
+<br><br>
+The amplified WT and mutant nucleotide sequences when treated with modified gRNA:Cas complexes can be distinguished by adapting to different readouts such as gel electrophoresis, capillary electrophoresis, fluorescence measurement, or lateral flow assay, etc (1-7 ).
+
+</p> 
+<h3 style="margin-top: 20px;padding-top: 130px;" >  Frequently Asked Questions  </h3>
+<p class="lead">
+  <strong>I am unable to design crRNAs for my variant id (rsID or mutation id in the case of SARS-CoV-2)</strong>
+<br>
+If the server is not able to design crRNA for any variation, one can try using a sequence-based query through Seq-CriSNPr. Even though the CriSNPr database is updated on a regular basis, it might miss variant ids that are recently updated in ClinVar or the dbSNP database. Please mail us to include your variations in the database.
+<br><br>
+<strong> I want to design crRNA for organisms other than SARS-CoV-2 or humans </strong>
+<br>
+One can mail us to include your genome of interest. We will try to incorporate the variation database of organisms into the CriSNPr, if available. Otherwise, the genome can be included in Seq-CriSNPr and can design crRNAs and primers through a sequence-based query.
+<br><br>
+<strong>Why are there two tabs of Cas14 in the result section?</strong>
+<br>
+Cas14 requires TTTA PAM when cleaving a dsDNA target sequence, but is not dependent on any PAM when it comes to an ssDNA target sequence. Based on the availability and uses end, both are included in the result section.
+<br><br>
+<strong>On what basis the crRNA provided are ranked?</strong>
+<br>
+Currently, there is no scoring algorithm developed to score these SNV targeting modified crRNA because of limited experimentally validated data. But one can still consider crRNA sequences with no or the minimum number of off-targets.
+<br><br>
+<strong>On what basis are the provided amplification primers ranked?</strong>
+<br>
+CriSNPr uses Primer3 python library for designing the provided primer sequences and is ranked by considering different parameters such as annealing temperature, GC%, and self-complementary (TH) score as provided by the Primer3Plus. To reduce the non-specific amplification by primer sequences, these were further filtered for off-targets on a representative bacterial genome database (NCBI), virus genome database (NCBI), and human genome/transcriptome (GENCODE GRCh38) with up to 2 mismatches. 
+<br><br><br>
+Regarding any error or trouble in designing crRNA/primers targeting a particular SNV, please raise the issue to the <a href="https://github.com/asgarhussain/CriSNPr">https://github.com/asgarhussain/CriSNPr</a> or direct mail to asgar.hussain@igib.in.
+<br><br><br> 
+CriSNPr crRNA database link : <a href='{{ url_for('download')  }}'>Human/Sars-Cov-2 variants database</a>
+
+</p>
+<h4 > <em>References: </em></h4>  
+<ol > 
+  <br><br>
+  <li ><p class="lead">
+    Myhrvold, Cameron, et al. "Field-deployable viral diagnostics using CRISPR-Cas13." Science 360.6387 (2018): 444-448.</p>
+  </li>
+  <li ><p class="lead">  Li, Shi-Yuan, et al. "CRISPR-Cas12a-assisted nucleic acid detection." Cell discovery 4.1 (2018): 1-4.</p>
+  </li>
+  <li > <p class="lead"> Harrington, Lucas B., et al. "Programmed DNA destruction by miniature CRISPR-Cas14 enzymes." Science 362.6416 (2018): 839-842. </p></li>
+  <li > <p class="lead"> Teng, Fei, et al. "CDetection: CRISPR-Cas12b-based DNA detection with sub-attomolar sensitivity and single-base specificity." Genome biology 20.1 (2019): 1-7. </p></li>
+  <li > <p class="lead"> Azhar, Mohd, et al. "Rapid and accurate nucleobase detection using FnCas9 and its application in COVID-19 diagnosis." Biosensors and Bioelectronics 183 (2021): 113207. </p></li>
+  <li > <p class="lead"> Kumar, Manoj, et al. "FnCas9-based CRISPR diagnostic for rapid and accurate detection of major SARS-CoV-2 variants on a paper strip." Elife 10 (2021): e67130. </p></li>
+  <li > <p class="lead"> Acharya, Sundaram, et al. "Engineered PAM-flexible FnCas9 variants for robust and specific genome editing and diagnostics." (https://doi.org/10.21203/rs.3.rs-990232/v1, 2021). </p></li>
+  <li > <p class="lead"> Untergasser, Andreas, et al. "Primer3—new capabilities and interfaces." Nucleic acids research 40.15 (2012): e115-e115. </p></li>
+  <li > <p class="lead"> Bae, Sangsu, Jeongbin Park, and Jin-Soo Kim. "Cas-OFFinder: a fast and versatile algorithm that searches for potential off-target sites of Cas9 RNA-guided endonucleases." Bioinformatics 30.10 (2014): 1473-1475. </p></li>
+  
+  </ol>
+      </div>
+    </div>
+ 
+  </body> 
+</html>

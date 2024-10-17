@@ -1,0 +1,334 @@
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0PGB0RSKC4');
+</script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css1/main.css')  }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/bootstrap.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='crisnpr11.svg')  }}" />
+  <title>CriSNPr</title>
+
+  <!-- Custom styles for this template -->
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/sticky-footer.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+        $(document).on('click','.click_me',function(e){
+          e.preventDefault();
+          var search_val = $(this).attr('data-value');
+          
+          $('#search').val(search_val);
+        });
+        $(document).on('click','.btn-delete',function(e){
+          $('#search').val('');
+        });
+        
+      });
+  </script>   
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ 
+<script   src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+<script>
+    $(document).ready(function(){
+        // Defining the local dataset
+        var Plant =['Abies fargesii', 'Abutilon theophrasti', 'Acacia carneorum', 'Acacia cyclops', 'Acacia retinodes', 'Acer rubrum', 'Achyranthes bidentata Blume', 'Acokanthera oppositifolia', 'Aconitum barbatum', 'Aconitum sinchiangense', 'Acridocarpus orientalis', 'Actinostemma lobatum Maxim', 'Adenium obesum', 'Adonis multiflora Nishikaw, a & Koki Ito', 'Adonis multiflora Nishikawa & Koki Ito.', 'Aegle marmelos', 'Aegle marmelos,  Elephantopus scaber.', 'Aesculus hippocastanum', 'Agaricus albus', 'Agaricus bisporous', 'Ageratum conyzoides', 'Aglaia abbreviata', 'Aglaia odorata', 'Ajuga bracteosa wall ex Benth', 'Albatrellus confluens', 'Albizia julibrissin Durazz.', 'Albizzia julibrissin Durazz', 'Alisma canaliculatum', 'Alliaria petiolata,Salvadora persica, and (Carica papaya)', 'Allium atroviolaceum', 'Allium autumnale', 'Allium bakhtiaricum', 'Allium cepa', 'Allium sativum', 'Allium sivasicum', 'Aloe vera', 'Aloe vera and Palmatum rhubarb', 'Alpinia conchigera', 'Alpinia conchigera Griff', 'Alpinia galanga L', 'Alpinia roxburghi', 'Alpinia roxburghii', 'Alysicarpus vaginalis', 'Amaranthus cruentus', 'American ginseng', 'Ammopiptanthus mongolicus', 'Amoora rohituka', 'Amorphophallus konjac, Amorphophallus rivieri and Amorphophallus sinensis.', 'Ampelopsis megalophylla', 'Ampelozizyphus amazonicus Ducke', 'Ananas comosus', 'Anastatica hierochuntica', 'Anastatica hierochuntica (L.)', 'Androsace umbellata', 'Anemarrhena asphodeloidea Bunge', 'Anemone cylindrica', 'Angelica amurensis', 'Angelica sinensis', 'Annona muricata', 'Annona senegalensis', 'Anoectochilus formosanus Hayata', 'Antiaris toxicaria', 'Antrodia camphorata', 'Antrodia cinnamomea', 'Apodytes dimidiata', 'Arabidopsis thaliana', 'Arctium lappa', 'Ardisia Crenata', 'Ardisia crenata', 'Aronia melanocarpa', 'Artabotrys hainanensis', 'Artabotrys hongkongensis', 'Artabotrys hongkongensis Hance', 'Artemisia Capillaris', 'Artemisia Keiskeana', 'Artemisia Selengensis', 'Artemisia Stolonifera', 'Artemisia annua', 'Artemisia herba alba', 'Artemisia monosperma', 'Artemisia princeps', 'Artemisia princeps var orientalis', 'Artocarpus elasticus', 'Artocarpus lacucha, Morus australis', 'Artocarpus obtusus', 'Arundo donax', 'Asparagus cochinchinensis', 'Aspergillus', 'Astragali radix', 'Astragalus membranaceus', 'Avicennia marina', 'Azadirachta indica', 'Bacopa monnieri', 'Bauhinia variegata', 'Berberis vulgaris', 'Berberis vulgaris,Tinospora cordifolia', 'Black ginseng', 'Boerhaavia diffusa L.', 'Boesenbergia rotunda rhizomes', 'Bolbostemma paniculatum', 'Boletus edulis', 'Boswellia carteri', 'Boswellia frereana', 'Boswellia ovalifoliolata', 'Boswellia thurifera', 'Brassica nigra', 'Brassica oleracea', 'Brassica oleracea var. italica', 'Brucea javanica', 'Bupleurum falcatum', 'Bursera copallifera', 'Caesalpinia minax', 'Caesalpinia sappan', 'Caesalpinia spinosa', 'Cajanus cajan', 'Calanticaria bicolor', 'Calea urticifolia', 'Callicarpa nudiflora', 'Calligonum polygonoides', 'Callistemon citrinus', 'Callistemon viminalis', 'Calophyllum inophyllum', 'Camellia oleifera Abel', 'Camellia sinensis', 'Cannabis sativa', 'Capsicum annuum', 'Carex fraseriana', 'Carica papaya', 'Carica papaya L.', 'Carpesium abrotanoides L', 'Carrichtera annua', 'Cassia alata', 'Cassia alata plant', 'Cassia glauca', 'Castanea sativa', 'Catunaregam spinosa', 'Celastraceae and Hippocrateaceae', 'Celastrus hindsii', 'Celosia argentea', 'Centaurea cyanus', 'Centaurea diluta', 'Centella asiatica (Linn) Urban', 'Cephalanceropsis gracilis', 'Cephalantheropsis gracilis', 'Chaerophyllum aureum', 'Chaetomium longirostre', 'Chelidonium majus L', 'Chimonanthus nitens Oliv.', 'Chimonanthus nitens Olive', 'Chlorella minutissima', 'Christia vespertilionis', 'Cicer arietinum', 'Cichorium Pumilum', 'Cimicifuga foetida', 'Cimicifuga racemosa', 'Cinnamomum cassia', 'Cinnamomum zeylanicum', 'Citrus hystrix', 'Citrus limon', 'Citrus sinensis', 'Citrus tankan', 'Citrus unshiu', 'Cladosporium cladosporioides', 'Cladosporium oxysporum', 'Clausena excavata Burm', 'Clausena hainanensis', 'Clausena lenis', 'Cleistochlamys kirkii', 'Clematis ganpiniana', 'Clerodendrum kiangsiense', 'Clerodendrum viscosum', 'Clinacanthus nutans', 'Clinacanthus nutans Lindau', 'Clusia rosea', 'Cnidium monnieri Cusson', 'Cnidium officinale', 'Coffea arabica', 'Coleus hybridus', 'Colophospermum mopane', 'Commiphora africana', 'Commiphora mukul', 'Coprinus comatus', 'Coptidis rhizoma', 'Coptis chinensis', 'Cordyceps bassiana', 'Cordyceps militaris', 'Cordycepsmilitaris', 'Coreopsis maritima', 'Coriandrum sativum', 'Corydalis govaniana', 'Corydalis yanhusuo', 'Coryllus avellana L.,', 'Costus speciosus', 'Crataegus pinnatifida', 'Cratoxy formosum', 'Cratoxylum cochinchinense', 'Crocus sativus', 'Croton oblongifolius.', 'Croton oblongus Burm.f.', 'Cryptocarya yunnanensis', 'Cullen corylifolium', 'Cunila lythrifolia', 'Cuphea aequipetala', 'Cupressus sempervirens', 'Curcuma longa', 'Curcuma wenyujin', 'Curcuma zedoaria', 'Cuscuta chinensis', 'Cyathostemma argenteum', 'Cyclopia genistoides', 'Cymbopogon nervatus', 'Cymbopogon schoenanthus', 'Cynanchum paniculatum', 'Cynanchum wilfordii', 'Cynara scolymus L.', 'Cyperus rotundus L', 'Cystoseira barbata', 'Dalbergia velutina', 'Daphne genkwa', 'Daphne papyracea', 'Datura stramonium and Datura inoxia', 'Daucus carota and Ipomoea batatas', 'Daucus carrota', 'Decalepis hamiltonii', 'Dicranopteris linearis', 'Dillenia suffruticosa', 'Dioscorea bulbifera', 'Dioscorea collettii', 'Dioscorea villosa', 'Diospyros lotus', 'Diospyros lycioides', 'Diospyros undulata', 'Dittrichia viscosa', 'Dracocephalum surmandinum', 'Echinacea angustifolia', 'Echinophora Platyloba', 'Elaeis guineensis', 'Elaeodendron orientale', 'Elephantopus mollis Kunth', 'Elephantopus scaber', 'Eleutherococcus senticosus', 'Eleutherococcus trifoliatus', 'Embelia ribes', 'Emblica officinalis', 'Engleromyces goetzii', 'Epimedium diphyllum', 'Epimedium pubescens and Alseodaphne semecarpifolia', 'Epipremnum pinnatum (L.)', 'Eruca sativa', 'Erycibe elliptilimba', 'Erythrina abyssinica', 'Erythrina corallodendron', 'Erythrina excelsa', 'Erythronium japonicum', 'Eucalyptus robusta', 'Eugenia aquea', 'Eugenia jambolana', 'Euonymus alatus', 'Eupatorium lindleyanum', 'Euphorbia fischeriana Steud', 'Euphorbia hirta', 'Euphorbia humifusa', 'Euphorbia jolkini', 'Euphorbia lathyris', 'Euphorbia szovitsii Fisch. & C.A.Mey', 'Euphorbia tirucalli', 'Eurycoma longifolia', 'Eurycoma longifolia Jack', 'Eurycoma longifolia Jack.', 'Euscaphis japonica', 'Euterpe oleracea', 'Euterpe oleracea Mart.', 'Evodia rutaecarpa Bentham', 'Fagonia indica', 'Ferula assa-foetida', 'Ferula hermonis', 'Ferula oopoda', 'Ferula persica', 'Ferula szowitsiana', 'Ferulago angulata', 'Ficus altissima', 'Ficus carica', 'Ficus crocata', 'Ficus salicifolia', 'Ficus septica', 'Flacourtia rukam Zoll. & Moritzi', 'Foeniculum vulgare', 'Forsythia suspensa', 'Gaillardia pulchella', 'Galium aparine', 'Ganoderma lucidum', 'Ganoderma lucidum and Polyporus umbellatus.', 'Ganoderma sinense', 'Garcinia celebica', 'Garcinia epunctata', 'Garcinia hanburyi', 'Garcinia mangostana', 'Garcinia mangostana L.', 'Garcinia nervosa', 'Garcinia quaesita', 'Garcinia tetrandra', 'Garcinia tetrandra, Garcinia mangostana', 'Garcinia wightii', 'Gardenia jasminoides', 'Gardenia obtusifolia', 'Ginkgo biloba', 'Ginseng', 'Ginseng.', 'Glaucium flavum', 'Gleditsia sinensis', 'Glehnia littoralis', 'Glossogyne tenuifolia', 'Glycine max', 'Glycine max, Pueraria thunbergiana', 'Glycine soja', 'Glycyrrhiza glabra', 'Glycyrrhiza inflata', 'Goniothalamus elegants Ast', 'Grifola frondosa', 'Guaiacum sanctum and Guaiacum officinale', 'Hedychium spicatum', 'Helicteres isora', 'HerbaLeonuri', 'Hibiscus Syriacus', 'Hibiscus rosa-sinensis', 'Hibiscus rosa-sinesis', 'Hibiscus syriacus', 'Horsfieldia superba', 'Humboldtia unijuga', 'Humulus lupulus', 'Hygrophorus eburneus', 'Hypericum perforatum', 'Hypericum salsugineum', 'Imperata cylindrica', 'Inula aucheriana', 'Inula lineariifolia Turcz', 'Ipomoea batatas', 'Ipomoea batatas L', 'Ipomoea batatas L. Lam', 'Isodon adenolomus', 'Isodon eriocalyx', 'Isodon forrestii var. forrestii', 'Isodon japonica var. glaucocalyx', 'Isodon rubescens', 'Jatropha curcas', 'Juglans mandshurica', 'Juglans regia', 'Juniperus communis L', 'Justicia gendarussa', 'Kigelia africana', 'Knema elegans', 'Kochia scoparia Scharder', 'Kokoona zeylanica', 'Kopsia fruticosa', 'Lampranthus aurantiacus', 'Lampranthus glaucus', 'Larrea divaricata Cay.', 'Lavandula coronopifolia', 'Lawsonia inermis', 'Lentinula edodes', 'Lepidium sativum', 'Leptadenia pyrotechnica Forssk', 'Licorice', 'Limoniastrum guyonianum', 'Lindera erythrocarpa Makino', 'Linum usitatissimum', 'Lithospermum erythrorhizon', 'Lonicera japonica', 'Lonicera similis Hemsl', 'Lycium barbarum', 'Lyonia ovalifolia var. hebecarpa', 'Macleaya cordata', 'Maclura cochinchinensis', 'Maclura pomifera', 'Macrothelypteris torresi', 'Magnolia grandiflora', 'Magnolia officinalis', 'Malus domestica', 'Malus doumeri', 'Malus pumila', 'Mangifera indica', 'Mangifera pajang', 'Mappianthus iodoies', 'Mappianthus iodoies, Cornus kousa, Eria bambusifolia', 'Marrubium crassidens', 'Maytenus cuzcoina', 'Maytenus disticha', 'Melaleuca Alternifolia', 'Melissa officinalis L., and Salvia officinalis L.', 'Melodinus fusiformis', 'Meriandra dianthera', 'Mexican poleo', 'Mimusops zeyheri', 'Momordica charantia', 'Monosporascus eutypoides', 'Montanoa guatemalensis', 'Morinda citrifolia Linn', 'Moringa oleifera', 'Morus nigra', 'Muscadinia rotundifolia', 'Mushroom Tricholoma pardinum', 'Myoporum bontioides', 'Myristica argentea', 'Nasturtium officinale', 'Nauclea orientalis', 'Nelumbo nucifera', 'Nepeta menthoides Boiss', 'Nigella sativa', 'Nothapodytes foetida (Wight) Sleumer', 'Nothapodytes nimmoniana', 'Ocimum basilicum', 'Olea europaea', 'Oliveria decumbens', 'Onobrychis ebenoides', 'Oplopanax horridus', 'Origanum compactum', 'Origanum munzurense', 'Oroxylum indicum', 'Pachypodium lamerei Drake', 'Pachysandra terminalis', 'Paecilomyces tenuipes', 'Paeonia lactiflora', 'Paeonia suffruticosa', 'Panax ginseng', 'Paraconiothyrium hawaiiense', 'Paris polyohylla var. chinensis', 'Paris polyphylla', 'Parkinsonia aculeata', 'Pavetta indica', 'Pediomelum cuspidatum, Vitis.', 'Peganum harmala', 'Pelargonium graveolens', 'Pelingo apple', 'Penicillium', 'Periploca hydaspidis', 'Persicaria maculosa', 'Peucedanum japonicum Thunb', 'Phaius mishmensis', 'Phalaris coerulescens', 'Phaleria macrocarpa', 'Phaleria macrocarpa Boerl', 'Phaseolus vulgaris', 'Phellinus linteus.', 'Phellodendron amurense', 'Phlomis russeliana', 'Phlomis viscosa Poiret', 'Phoenix dactylifera L.', 'Phyllanthus amarus', 'Phyllanthus amarus Schum. & Thon.', 'Phyllanthus niruri', 'Phyllanthus urinaria Linn', 'Physalis minima L.', 'Picrorhizakurroa Royle ex Benth.', 'Pinus koraiensis', 'Pinus nigra Arn.', 'Piper nigrum', 'Pistacia atlantica', 'Pistacia atlantica sub kurdica', 'Pithecellobium dulce', 'Plantago media', 'Plants of Celastraceae family.', 'Platycodon grandiflorus', 'Pleiocarpa pycnantha', 'Pleurotus ostreatus', 'Plinia cauliflora', 'Pluchea dioscoridis', 'Plumbago zeylanica', 'Plumbago zeylanica L', 'Podocytisus caramanicus', 'Podophyllum hexandrum', 'Polygonatum odoratum', 'Polygonum avicular', 'Polygonum cognatum', 'Polygonum hydropiper L', 'Poncirus trifoliata', 'Populus tremula', 'Porphyridium cruentum', 'Potentilla fulgens', 'Pothos scandens', 'Prinsepia utilis Royle', 'Prinsepia utilis Royle, Morus spp., Ichnocarpus frutescens, Pleiocarpa pycnantha, Apple, Wrightia pubescens (R.Br.), Betula utilis, Plantago major, Pachypodium lamerei Drake, Myrica cerifera L., Crataegus pinnatifida, Cissus incisa, Hechtia glomerata, Wrightia tomentosa Roem. & Schult.', 'Prinsepia utilis Royle, Wrightia pubescens, Betula utilis, Syzygium aromaticum (L.), Plantago major, Rubus chingii Hu, Hechtia glomerata,Sapindus saponaria L., Wrightia tomentosa Roem. & Schult. , Markhamia stipulata var. canaense V.S. Dang, Pulicaria undulata', 'Prosopis juliflora', 'Prunus amygdalus Batsch', 'Prunus avium', 'Prunus dulcis', 'Prunus spinosa', 'Pseuderanthemum palatiferum', 'Pseudevernia furfuracea', 'Pseudolarix kaempferi', 'Pseuduvaria monticola', 'Pseuduvaria trimera', 'Psidium guajava', 'Psidium guajava L', 'Psidium guajava, Origanum vulgare L., Cinnamomum spp. Eugenia caryophyllata, and Piper nigrum L.', 'Pterogyne nitens', 'Pueraria lobata', 'Pulicaria undulata', 'Punica granatum', 'Punica granatum L.', 'Pyracantha fortuneana', 'Quercus, pinus, Malus domestica', 'Radix Bupleuri', 'Radix Sanguisorbae', 'Radix astragali', 'Radix stephaniae tetrandrae', 'Red clover', 'Rheum emodi', 'Rheum emodi Wall. ex Meissn. rhizome', 'Rheum palmatum', 'Rheum tanguticum Maxim. ex Balf.', 'Rhinacanthus nasutus', 'Rhizophora apiculata', 'Rhodiola crenulata', 'Rhus verniciflua Stokes', 'Rosmarinus officinalis', 'Rubia cordifolia', 'Rubus fairholmianus', 'Saccharomyces cerevisiae', 'Salacia oblonga', 'Salvia africana', 'Salvia buchananii Hedge', 'Salvia miltiorrhiza', 'Salvia miltiorrhizae Binge', 'Salvia tebesana Bunge', 'Sanguisorba officinalis', 'Santolina corsica Jord', 'Sarcococca hookeriana', 'Sasa borealis', 'Satureja khuzestanica Jamzad', 'Satureja spicigera', 'Saururus chinensis', 'Saussurea lappa', 'Saussurea phyllocephala', 'Schima wallichii', 'Schinus molle', 'Schisandra chinensis', 'Schisandrae Chinensis', 'Schumacheria castaneifolia Vahl', 'Scoparia dulcis', 'Scrophularia atropatana', 'Scrophularia oxysepala', 'Scrophularia umbrosa Dumort', 'Scutellaria baicalensis', 'Scutellaria barbata', 'Scutellaria likiangensis', 'Scutellaria litwinowii', 'Scutellaria orientalis, Salvia officinalis ,  Cyclotrichium niveum L., Achillea millefolium s.l., Clerodendrum viscosum', 'Scutellaria strigillosa', 'Scutelleria baicalensis', 'Semecarpus anacardium', 'Semialarium mexicanum', 'Senecio rhizomatus Rusby', 'Serenoa repens', 'Sesamum indicum', 'Sideritis leucantha', 'Silphium radula Nutt.', 'Silybum marianum', 'Sinopodophylli Fructus', 'Sinopodophyllum hexandrum', 'Smilax corbularia and Manilkara zapota', 'Solanum chacoense', 'Solanum lycopersicum', 'Solanum nigrum L', 'Solanum torvum', 'Sophora flavescens Aiton', 'Sophora interrupta', 'Sour jujube', 'Soymida febrifuga and Commiphora africana', 'Spatholobus suberectus', "St. John's Wort (SJW)", 'Staphisagria macrosperma', 'Stephania japonica', 'Stephania sinica', 'Strophioblachia fimbricalyx', 'Sutherlandia frutescens', 'Syzygium aromaticum', 'Syzygium aromaticum and Cinnamomum verum', 'Tabernaemontana divaricata, Tabernaemontana corymbosa', 'Taiwania cryptomerioides', 'Taiwanofungus camphoratus', 'Tamarix aphylla', 'Tanacetum polycephalum', 'Taraxacum mongolicum', 'Taxus brevifolia', 'Tephrosia candida', 'Tephrosia uniflora', 'Terminalia arjuna', 'Terminalia belerica', 'Terminalia chebula', 'Tetradenia riparia', 'Tetrastigma hemsleyanum', 'Thalassodendron ciliatum', 'Thelypteris torresiana', 'Thespesia populnea', 'Thymus caramanicus Jalas', 'Tinospora cordifolia', 'Toona ciliata var. yunnanensis', 'Torilis japonica', 'Tragopogon orientalis', 'Tragopogon porrifolius', 'Trametes robiniophila', 'Trametes versicolor', 'Trichosanthes cucumerina (snakegourd)', 'Trichosanthes kirilowii', 'Trigonella berythea', 'Trigonella foenum-graecum', 'Trigonostemon howii', 'Tripterygium regelii.', 'Tripterygium wilfordii Hook F', 'Triticum aestivum', 'Typhonium flagelliforme', 'Uncaria rhynchophylla', 'Uncaria tomentosa', 'Undaria pinnatifida and Fucus vesiculosus', 'Urtica dioica', 'Vaccinium myrtillus L.', 'Vaccinium subg. Oxycoccus', 'Valeriana jatamansi Jones', 'Valeriana officinalis', 'Vernonia amygdalina', 'Vernonia anthelmintica', 'Vernonia zeylanica', 'Verticillium dahliae', 'Viburnum odoratissimum', 'Vinca rosea Linn.', 'Viscum album', 'Visnea mocanera and Ceriops tagal', 'Vitex agnus-castus L', 'Vitis coignetiae', 'Vitis palmata', 'Vitis rupestris', 'Vitis vinifera', 'Voacanga africana Staph', 'Wedelia biflora', 'Withania coagulans', 'Withania somnifera', 'Xanthium strumarium', 'Ximenia caffra', 'Xylocarpus granat', 'Xylocarpus granat, Talaromyces flavus', 'Xylopia aromatica', 'Yucca aloifolia variegata', 'Zanthoxylum zanthoxyloides', 'Zea mays L', 'Zhumeria majdae', 'Zingiber officinale', 'Zingiber zerumbet', 'Ziziphus jujube', 'Ziziphus spina-christi', 'adzuki bean Phaseolus angularis', 'sweet wormwood'];
+        
+        // Constructing the suggestion engine
+        var Plant = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: Plant
+        });
+
+         /* Specify maximum number of suggestions to be displayed */
+    
+        // Initializing the typeahead
+        $('.typeahead').typeahead({
+          hint: false,
+        highlight: true, /* Enable substring highlighting */
+      minLength: 1, /* Specify minimum characters required for showing result */
+      limit:15
+     },
+        {
+            name: 'Plant',
+            source: Plant
+        });
+    });  
+    </script>
+<style>
+
+
+
+.click_me {
+/*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+  /*background: linear-gradient(to right, #772953 0%, # 28%, #EB6536 100%,#E95420 100% );*/
+  /*background: linear-gradient(to right, #E95420 0%, #EB6536 28%, #925375 100%,#772953 100% );*/
+  background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+/*  background-image: linear-gradient(to top,#72afd3  0%, #37ecba  100%);*/
+/*  background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);*/
+
+  border: none;
+  color: maroon;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+
+}
+  .navbar-custom {
+    background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);
+
+/*    background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);*/
+    /*background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+
+
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+  color: blueviolet;
+  padding: 1rem 1rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+  border:1px solid whitesmoke;  
+
+
+}.navbar-custom {
+  background-color: blueviolet;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: red;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+  background-color: #ff5500;
+}
+.navbar-custom .dropdown-item {
+  color: #ffffff;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #333333;
+  background-color: rgba(255,255,255,.5);
+}
+.alert-error {
+  padding: 12px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  margin-bottom: 1px;
+  color: red;
+  text-align: center;
+}
+.alert-info {
+  padding: 2px;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: black;
+  text-align: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 70px;
+   background-color: #924D8B; 
+   font-size: 25px;
+   color:peachpuff;
+   text-align: center;
+} 
+
+div#loading {
+  display: none;
+    width: 500px;
+    height:180px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    background: url(/static/Vanilla-2s-289px.gif) no-repeat;
+   position: absolute;
+    cursor: wait;
+   
+  }
+  .typeahead, .tt-query, .tt-hint {
+	border: 2px solid #CCCCCC;
+	border-radius: 8px;
+	font-size: 22px; /* Set input font size */
+	height: 30px;
+	line-height: 30px;
+	outline: medium none;
+	padding: 8px 12px;
+	width: 396px;
+  
+}
+.typeahead {
+	background-color: #4158D0;background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+.typeahead:focus {
+	border: 2px solid #0097CF;
+}
+.tt-query {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+	color: #999999;
+}
+.tt-menu {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	margin-top: 12px;
+	padding: 8px 0;
+	width: 422px;
+}
+.tt-suggestion {
+	font-size: 22px;  /* Set suggestion dropdown font size */
+	padding: 3px 20px;
+}
+.tt-suggestion:hover {
+	cursor: pointer;
+	background-color: #0097CF;
+	color: #FFFFFF;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+
+
+.bs-example {
+	font-family: sans-serif;
+  position: relative;
+	margin: 21px;
+}
+</style>
+
+  </head>
+  <body>
+   
+    <nav class="navbar navbar-expand-sm navbar-custom bg-primary  fixed-top">
+      <!-- Brand/logo       <a class="navbar-brand" href="http://jatayuv2.igib.res.in/">
+        <img src="/static/images/jatayu1.png" alt="logo" style="width:60px; "> 
+      </a>-->
+
+      
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: #772953;font-size: 30px;">Instructions</a>
+        </li>
+
+       <li class="nav-item">
+          <a class="nav-link" href="#" style="color: #772953;font-size: 30px;">Contact Us</a>
+        </li>
+
+           <!--<li class="nav-item">
+             <a class="nav-link" href="#"></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#"></a>
+           </li> -->
+         </ul>
+    </nav>
+
+       
+
+    <div class="s010">
+    
+        <form method="POST"  action="/plant" role="form1" enctype="multipart/form-data">
+     
+          {{ form.csrf_token }}
+          <fieldset>
+
+          <div class="inner-form">
+            <p style="color:#ff7d4d;font-size: 21px;font-weight: bold;">Enter Plant Name :</p>
+
+            <div class="input-field">
+   
+     
+
+        <input  id="search" class="typeahead tt-query tt-dropdown-menu"  spellcheck="false" autocomplete="off"  type="text"   id="Plant" name="Plant" style="background-color: #4158D0;background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);width:200%;"/>
+         
+         </div>
+          
+               <div class="input-field">
+                
+                <div class="group-btn">
+                  <button class="btn-delete" id="delete" style="margin-top: 10px;">CLEAR</button>
+                  <button class="btn-search" onclick="loading();" >SEARCH</button>
+                   
+                  {% for category, message in get_flashed_messages(with_categories=true) %}
+                  <p class="alert-{{ category }}" >{{ message }}</p>
+
+                    {% endfor %}   
+                </div>
+
+
+              </div>
+          </div>
+          
+        </fieldset>
+      </form>
+  
+      <div class="footer">
+        <span  >Powered by, CSIR-IGIB</span> <br>
+        <!--<span style="font-size: 20px;">Visitors : {{visitors}}</span>-->
+        </div>
+    
+  </div>
+  <script type="text/javascript">// <![CDATA[
+    function loading(){
+      $("#loading").show();
+
+
+        $("#main").hide();       
+    }
+// ]]></script>
+  </body> 
+</html>

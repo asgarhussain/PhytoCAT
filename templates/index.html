@@ -1,0 +1,445 @@
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0PGB0RSKC4');
+</script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css1/main.css')  }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/bootstrap.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='phytocat.png')  }}" />
+  <title>PhytoCAT</title>
+
+  <!-- Custom styles for this template -->
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/sticky-footer.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+        $(document).on('click','.click_me',function(e){
+          e.preventDefault();
+          var search_val = $(this).attr('data-value');
+          
+          $('#search').val(search_val);
+        });
+        $(document).on('click','.btn-delete',function(e){
+          $('#search').val('');
+        });
+        
+      });
+  </script>   
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ 
+<script src="{{ url_for('static', filename='js/typeahead.bundle.js') }}"></script>
+
+<script>
+    $(document).ready(function(){
+        // Defining the local dataset
+        var Phytochemical = ['ω-Hydroxyundec-9-enoic acid (ω-HUA)', 'γ-Tocotrienol', 'β-sitosterol-glucoside', 'β-sitosterol', 'β-lapachone', 'β-elemene', 'β-dihydroagarofuran-type sesquiterpene (MD-6)', 'β-antiarin', 'β-amyrin', 'β-Caryophyllene oxide', 'α-mangostin', 'α-linolenic acid', 'α-eleostearic acid (α-ESA)', 'α-conidendrin', 'α-cadinol', 'α-antiarin', 'Δ9-tetrahydrocannabinolic acid', '\xa0n-butyl-beta-D-fructofuranoside', '\xa0Trigohowimine A', '\xa0Protoapigenone\xa0', '\xa0Julibroside (J29)', '\xa0Gossypol', '\xa0Croblongifolin', 'quercetin 3-O-β-d-xylopyranosyl-(1‴→2″)-O-β-d-glucopyranoside', 'p-hydroxybenzoic acid-4-O-α-d-manopyranosyl-(1 → 3)-α-l-rhamnopyranoside', 'p-hydroxybenzoic acid', 'n-butyl-alpha-D-fructofuranoside', 'lasiokaurin', 'fischerisin B', 'erythrodiol-3-acetate (HU-1)', 'beta-phenethyl isothiocyanate', '[6″,6″-dimethylpyrano(2″,3″:4,5)]-3′-γ,γ-dimethylallyl-2′,3,4′-trihydroxychalcone', '[10]-gingerol', 'Ziziphus spina-christi extract', 'Ziziphus jujube extract', 'Ziyuglycoside II', 'Ziyuglycoside I', 'Ziyang green tea (ZTP)', 'Zingiber officinale extract (ZOME)', 'Zhumeria majdae essential oil', 'Zerumbone', 'Zantholic acid', 'Z-salignone', 'Yuexiandajisu E', 'Yuehchukene', 'Yuanhuadine', 'Yuanhuacine', 'Yanhusuo extract', 'Ximenia caffra seed oil', 'Xerophilusin N', 'Xerophilusin B', 'Xanthotoxol', 'Xanthorrhizol', 'Xanthone V', 'Xanthomicrol', 'Xanthohumol', 'Xanthochymol', 'Xanthinosin', 'Xambioona', 'Woorenogenin', 'Wogonoside', 'Wogonin', 'Withaniasomnifera root extracts (WRE)', 'Withania somnifera extract', 'Withaferin A', 'Wikstrol B', 'Wightiic acid', 'White button mushroom', 'Wheatgrass extract', 'Wedelolactone', 'Wedebicoside E', 'Wedebicoside C', 'Wedebicoside B', 'Wedebicoside A', 'Walnuts', 'Vulpinic Acid', 'Vobasine\xa0', 'Voacristine\xa0', 'Voacangine\xa0', 'Voacamine', 'Vitisin B', 'Vitexin', 'Vitex rotundifolia extract', 'Viscum album (VA) extract', 'Viscosalactone B', 'Violaxanthin', 'Vinorelbine', 'Vincristine', 'Vinblastine', 'Vibsanol C', 'Verticilla-4(20),7,11-triene', 'Vernonilide A', 'Vernonia divaricata extract', 'Vernonia amygdalina (VA) extract', 'Vernomelitensin', 'Vernolepin', 'Vernolactone', 'Vernodalin', 'Verbascoside', 'Vanillic acid', 'Valeric acid', 'Valeriana officinalis extract', 'Valerian extract', 'Uvaol', 'Uvamalol C', 'Usnic Acid', 'Urtica dioica extract', 'Ursolic acid-3-O-acetate', 'Ursolic acid', 'Urs-12-ene-3beta,6beta,16beta-triol-3-O-beta-galactopyranosyl-(1-->2)-beta-glucopyranoside', 'Unguinol', 'Uncaria tomentosa extract', 'Uncaria rhynchophylla (UPAs)', 'Umbelliprenin', 'Ukrain', 'Ugonin J', 'Typhonium flagelliforme tuber extract', 'Tylophorine', 'Turraea robusta extract', 'Turraea nilotica extract', 'Tupichinolide', 'Tubeimu', 'Tubeimoside-1', 'Tryptanthrin', 'Trollius chinensis flavonoids', 'Triregelin K', 'Triregelin I', 'Triptoquinone A', 'Triptonide', 'Triptolide', 'Triptobenzene S', 'Triptobenzene H', 'Triptobenzene D', 'Triptinin B', 'Triptinin A', 'Tripterregeline A', 'Triphenylethylene-Coumarin Hybrid 5c', 'Triphala', 'Trinervuloside C', 'Trilobine', 'Trigonella berythea extract', 'Trifolin', 'Tricin', 'Trichothecinol A', 'Trichosanthes kirilowii extract', 'Tricholopardin C', 'Trichobenzolignan', 'Tricetin', 'Trapa acornis husks (TAH) extract ', 'Trans-nerolidol (NER)', 'Trans-isoshinanolone', 'Trans-epsilon-viniferin', 'Trans-anethole (TA)', 'Trans-3-(3,4-dimethoxyphenyl)-4-[(E)-3,4-dimethoxystyryl]cyclohex-1-ene', 'Trametes versicolor extract', 'Tragopogon porrifolius extract', 'Toxicarioside M', 'Toxicarioside B', 'Torilis japonica extract (TJE)', 'Topazolin', 'Toosendanin (TSN)', 'Toonayunnanin B', 'Tonkinensine B', 'Tomatine', 'Tocotrienol-gamma + Tangeretin', 'Tocotrienol-gamma + Quercetin', 'Tocotrienol-gamma + Nobiletin', 'Tocotrienol-gamma + Narigenin', 'Tocotrienol-gamma + Hesperetin', 'Tocotrienol-gamma + Genistein', 'Tocotrienol-gamma + Apigenin', 'Tocotrienol-delta + Tangeretin', 'Tocotrienol-delta + Quercetin', 'Tocotrienol-delta + Nobiletin', 'Tocotrienol-delta + Narigenin', 'Tocotrienol-delta + Hesperetin', 'Tocotrienol-delta + Genistein', 'Tocotrienol-delta + Apigenin', 'Tocotrienol-alpha + Tangeretin', 'Tocotrienol-alpha + Quercetin', 'Tocotrienol-alpha + Nobiletin', 'Tocotrienol-alpha + Narigenin', 'Tocotrienol-alpha + Hesperetin', 'Tocotrienol-alpha + Genistein', 'Tocotrienol-alpha + Apigenin', 'Tocopherols', 'Tinospora cordifolia extract', 'Timosaponin AIII', 'Tiliroside', 'Thymus vulgaris L. essential oil', 'Thymus caramanicus extract (TCE)', 'Thymoquinone (TQ)', 'Thymol', 'Thymelaea hirsuta L. extracts', 'Thymbra Spicata extract', 'Thiosulfinates', 'Thidiazuron', 'Theaflavins', 'Theaflavin-3-gallate', 'Thaliblastine (TBL)', 'Thalassosterol', 'Tetrandrine (Tet)', 'Tetramethoxystilbene', 'Tetrahydropalmatine (THP) and Berberine (Ber)', 'Terpecurcumin Q', 'Terpecurcumin G', 'Terpecurcumin F', 'Terpecurcumin D', 'Terminamines S', 'Terminamines R', 'Terminamines Q', 'Terminamines P', 'Terminamines O', 'Terminamines N', 'Terminamines M', 'Terminamines L', 'Terminamines K', 'Terminamines G', 'Terminamines F', 'Terminamines E', 'Terminamines D', 'Terminamines C', 'Terminamines B', 'Terminamines A', 'Terminamine J', 'Terminamine I', 'Terminamine H', 'Terminaloside W', 'Terminaloside V', 'Terminaloside U', 'Terminaloside T', 'Terminaloside S', 'Terminaloside R', 'Terminaloside Q', 'Terminaline', 'Terminalia belerica extract', 'Tephrosin', 'Tengechlorenine', 'Tectochrysin', 'Tebesinone B\xa0', 'Taxus chinensis extract', 'Taxifolin', 'Taspine', 'Taro-derived extracts (TEs)', 'Tanshinones', 'Tanshinone IIA (Tan IIA) and andrographolide (Andro) combination', 'Tanshinone IIA', 'Tannic acid', 'Tangeretin', 'Tanacetum Polycephalum extract (TPHE)', 'Tamarix articulata extract', 'Tamarix aphylla essential oil', 'Taiwanin E', 'Taheebo', 'Tagetone A', 'Syzygium aromaticum extract (SA-EXT)', 'Syringin', 'Syringic acid', 'Sutherlandia frutescens extract', 'Sumadain C', 'Sulfuretin', 'Sulforaphane', 'Sugiol', 'Styrylpyrone derivative', 'Styrylpyrone dehydrogoniothalamin', 'Strychnos nuxvomica extract', 'Strychnos nux-vomica extract', 'Strophathojavoside', 'Strophanthidol', 'Strophanthidin', 'Strophalloside', 'Strobilanthes crispus extract', 'Strobilanthes crispa extract', 'Strigolactones', 'Strawberry extract', 'Stigmasterol', 'Stevioside', 'Sterigmatocystin', 'Stephania delavayi extract', 'Stemophenanthrene C', 'Stemophenanthrene B', 'Stemophenanthrene A', 'Stemofuran Y', 'Stemofuran X', 'Stachys pilifera Benth. extract', 'Stachys persica S.G.Gmel. ex C.A.Mey extract', 'Stachys byzantina C. Koch extract', 'Stachydrine hydrochloride', "St. John's Wort extract (SJWE)", 'Sphagneticola trilobata extract', 'Soyabean aglycone rich extracts (SARE)', 'Sophora interrupta extract (SEA)', 'Sophopterocarpan A', 'Sophoflavescenol', 'Songaricalarin D', 'Solanum torvum extract', 'Solanum nigrum extract', 'Solanum chacoense extract', 'Solajiangxin I', 'Solajiangxin H', 'Solajiangxin E', 'Solajiangxin D', 'Solajiangxin C', 'Solajiangxin B', 'Solajiangxin A', 'Snakegourd root polysaccharide', 'Smilax spinosa extract', 'Smilax china extract', 'Sistosterol-3-beta-D-glycoside', 'Sinopodophylliside A', 'Sinopodophylline D', 'Sinopodophylline C', 'Sinopodophylline B', 'Sinopodophylline A', 'Sinomenine', 'Sinoflavonoidgs B', 'Sinoflavonoidgs A', 'Sinococuline', 'Sinigrin', 'Sinchiangensine A', 'Sinapinic acid', 'Simulanol', 'Simalikalactone D', 'Silymarin', 'Silvestrol', 'Silibinin', 'Siegesbeckia orientalis extract', 'Sichuan pepper extracts', 'Shisanbilactone A', 'Shionone', 'Shinpterocarpin', 'Shinflavanone', 'Shikonin', 'Sesamol', 'Sesamin', 'Senecio rhizomatus Rusby (SrR) extract', 'Senecio glaucus extract', 'Semialarium mexicanum extract', 'Semecarpus anacardium nut extract (SA)', 'Selenium (Se)-containing polysaccharides', 'Selaginella repanda extract', 'Secoisolariciresinol diglucoside', 'Secofriedelanophyllemblicine', 'Scutestrigillosins E', 'Scutestrigillosins D', 'Scutestrigillosins C', 'Scutestrigillosins B', 'Scutestrigillosins A', 'Scutellariae radix', 'Scutellaria litwinowii extract', 'Scutellaria barbata extract (BZL101)', 'Scutellaria baicalensis extract', 'Scutellarein', 'Scutebata A', 'Scrophularia umbrosa\xa0Dumort extract', 'Scrophularia oxysepala extract', 'Scrophularia frigida Boiss extract', 'Scrophularia atropatana extract', 'Scopolin', 'Sclareol', 'Schizophyllan', 'Schisanol', 'Schisandronic acid', 'Schisandrin B', 'Schisandrin A', 'Schisandrin', 'Schinus molle essential oil', 'Schinensin D', 'Schinensin C', 'Saxifragifolin C', 'Saussurea lappa extract(ESL)', 'Saururus chinensis extract', 'Sauromatum giganteum extract', 'Satureja khuzestanica total extract', 'Satureja khuzestanica extract', 'Sasanquasaponin (SQS)', 'Sartoryglabin B', 'Sargassum oligocystum extract', 'Sargassum linearifolium extract', 'Sargassum boveanum extract', 'Sargassum angustifolium extract', 'Sarchookloide C', 'Sarchookloide B', 'Sarchookloide A', 'Saprorthoquinone + Aethiopinone', 'Saponin glycoside', 'Santonin', 'Santolina corsica extracts', 'Sanguinarine', 'Sanguiin H-6', 'Salvisertin A', 'Salvicine', 'Salvibuchanic acid', 'Salvianolic acid A', 'Salvianolic Acid B', 'Salvia syriaca extract', 'Salvia miltiorrhiza extract', 'Salvia hormium extract', 'Salvia fruticosa extract', 'Salvia dominica extract', 'Salvia atropatana extract', 'Salvia africana extract', 'Salix safsaf extract', 'Salidroside', 'Saikosaponin-d (SSd)', 'Saikosaponin-b4', 'Saikosaponin-b1', 'Saikosaponin-E', 'Saikosaponin-D', 'Saikosaponin-A', 'Saikosaponin b2 (SSb2)', 'Saikosaponin C', 'Saikosaponin A', 'Saikogenin G', 'Saffron extract', 'Safflower yellow (SY)', 'SANT, a novel Chinese herbal monomer combination', 'Rutoside', 'Russula delica extract', 'Rumex vesicarius extract', 'Rumex dentatus extract', 'Rumex crispus L. extract', 'Rukamtenol', 'Rubus crategifolius extract', 'Rotundic acid', 'Rottlerin', 'Rostratamin', 'Rosmarinus officinalis extract', 'Rosmarinic acid', 'Rosemary extract', 'Rohitukine', 'Rocaglaol', 'Rocaglamide', 'Robustaflavone A', 'Rigidusol', 'Rich Lady peach extract', 'Rhus verniciflua Stokes extract (PPEF)', 'Rhoifolin (RFL)', 'Rhodoeosein', 'Rhodiola crenulata extract', 'Rhizoxin', 'Rhinacanthin A', 'Rheum emodi extract', 'Rhein', 'Rhazyaminine', 'Rhaponticin', 'Rhamnazin', 'Rh2', 'Resveratrol', 'Resiniferatoxin', 'Regiolone', 'Red-fleshedapple peel extract', 'Red-fleshedapple flesh extract', 'Red guava extracts', 'Red grape wine extract (RWPF)', 'Red ginseng extract', 'Raspberry oil emulsion: supercritical CO2 (ROSCO2)', 'Raspberry oil emulsion: cold pressed (ROCOP)', 'Ramonanin A', 'Radix ranunculus ternati polysaccharides', 'Raddeanoside R13', 'Rabdosia rubescens extract', 'Quinovic acid', 'Quercus robur extract', 'Quercus macrocarpa extract', 'Quercus infectoria extract', 'Quercus acutissima extract', 'Querctine-3-O-glucoside', 'Quercitrin', "Quercetin-4'-O-sulphate", 'Quercetin-3-rhamnoside', 'Quercetin-3-methyl ether', 'Quercetin-3-O-β-Dglucopyranoside', 'Quercetin-3-O-β-D-glucopyranoside7-methly ether', 'Quercetin-3-O-β-D-glucopyranoside5-methly ether', 'Quercetin-3-O-β-D-(6″-methyl glucuronide)', 'Quercetin-3-O-glucuronide', 'Quercetin-3-O-beta-D-arabinofuranoside', 'Quercetin 3-O-β-d-mannuronpyranoside', 'Quercetin 3-O-β-d-mannuronopyranoside', 'Quercetin 3-O-β-D-(6″-n-butyl glucuronide)', 'Quercetin', 'Qingdu granule (QDG)', 'Pyrenacantha staudtii extract', 'Pyranocycloartobiloxanthone A (PA)', 'Pygenic acid A (PA)', 'Putranjivain A', 'Putranjiva roxburghii Seed Extract', 'Purple-fleshed sweet potato (PFSP) Tainung 73', 'Punicic acid', 'Punicalagin', 'Punica granatum extract', 'Pulveraven A', 'Pulicaria undulata essential oil', 'Puerarin', 'Pterostilbene', 'Pterogynine (PGN)', 'Pterogynidine (PGD)', 'Pteris Quadriureta (PQ) extract', 'Psoralen', 'Psidium guajava essential oil ', 'Pseurotin A', 'Pseudolaric acid B', 'Pseuderanthemum palatiferum (Nees) extract', 'Prunustosanan AI', 'Prunus amygdalus Batsch (bitter almond extract)', 'Pruniflorone G', 'Protopine', 'Protopheophorbide A', 'Protocatechuic acid methyl ester', 'Protocatechuic acid (PCA)', 'Protoberberine', 'Prosopis juliflora extract', 'Prosaikogenin F', 'Prosaikogenin D', 'Prosaikogenin A', 'Propinic lactone A', "Prodelphinidin B-2 3,3'-di-O-gallate", 'Proanthocyanidin', 'Pristimerin', 'Prim-O-glucosylcimifugin', 'Pouteria torta leaf extract', 'Pothobanol', 'Potentilla fulgens (PRE) extract', 'Porphyridium cruentum sulfated polysaccharides', 'Pomolic acid', 'Pomiferin', 'Pomegranate whole seed ethanolic extract', 'Pomegranate seed oil (PSO)', 'Pomegranate extract', 'Pomaces from Muscadinia rotundifolia', 'Polysaccharides from Taxus cuspidata', 'Polysaccharide SpaTA', 'Polyphylloside F', 'Polyphylloside E', 'Polyphylloside D', 'Polyphylloside C', 'Polyphylloside B', 'Polyphylloside A', 'Polyphyllin VI', 'Polyphyllin V', 'Polyphyllin D', 'Polyphenols of Artichoke', 'Polyphenolics from mango', 'Polyphenol mixtures of Euphorbia supina', 'Polymethoxyflavones', 'Polygonum cognatum extract', 'Polygonum avicular extract', 'Polygonatum odoratum extract', 'Polydatin (PD)', 'Podophyllum hexandrum extract', 'Plumbagin', 'Pluchea dioscoridis essential oil', 'Pleurotus ostreatus extracts', 'Plectranthus amboinicus extract', 'Platycodin D (PD)', 'Plantago major extract', 'Pithecellobium dulce extract', 'Pistacia integerrima extract', 'Pistacia atlantica sub kurdica extract', 'Piscidinol A', 'Piperlongumine', 'Piperine', 'Pinus nigra Arn. bark extracts from Mokra gora (MG) and Tara mountains', 'Pinostrobin chalcone', 'Pinostilbene', 'Pinolenic acid', 'Pinocembrin', "Pink Lady apples' peel-flavonoids (Peel-F)", "Pink Lady apples' flesh-flavonoids (Flesh-F)", 'Pine honey', 'Picrorhiza kurroa extracts', 'Picraviane A', 'Picrasidine G', 'Piceatannol (PCT)/(PIC)', 'Phytofluene', 'Phytoene', 'Physalis minima extract', 'Physagulide P', 'Phyllanthus niruri extract', 'Phyllanthus amarus extract', 'Phyllanthus amarus (PAM) extract', 'Phoenix Dan Cong tea', 'Phloridzin', 'Phlomis viscosa Poiret extract', 'Phlomis russeliana extract', 'Phlogacanthus thyrsiformis extract', 'Pheophorbide-a', 'Phenylacetaldehyde', 'Phenyl glucuronide', 'Phenethyl Isothiocyanate', 'Phaseollin', 'Pharbitis nil extract', 'Phaleria macrocarpa extract (PMEAF)', 'Phaitanthrin A', 'Pfaffia paniculata extract', 'Peucedanum japonicum Thunb (PJT) extract', 'Petiolaticin A', 'Persin', 'Perovskia abrotanoides extract', 'Periplorhamnoside', 'Periploca hydaspidis Falc crude extract', 'Perillyl alcohol', 'Perillic acid', 'Pergularia tomentosa extract', 'Peonidin-3-glucoside', 'Pentagalloyl glucose', 'Pentadecanoic Acid', 'Pennogenin 3-O-α-L-rhamnopyranosyl-(1→4)-α-L-rhamnopyranosyl-(1→4)-[α-L-rhamnopyranosyl-(1→2)]-β-D-glucopyranoside', 'Pennogenin 3-O-α-L-rhamnopyranosyl-(1→4)-[α-L-rhamnopyranosyl-(1→2)]-β-D-glucopyranoside', 'Pelingo apple juice', "Peganum harmala's extract", 'Peganum harmala extract', 'Pectolinarigenin', 'Pectic acid', 'Patrinia scabiosaefolia extract (EAE-PS)', 'Pashanone', 'Parvisoflavones-A', 'Parvifolixanthone C', 'Parthenolide', 'Parmotrema reticulatum extract', 'Parkinsonia aculeata extract', 'Paris saponin VII', 'Parietin', 'Paratrimerin I', 'Paratocarpins B', 'Paratocarpin E', 'Paramignya trimera extract (PTL)', 'Papaya leaf extract', 'Papaverine', 'Papain', 'Panepoxydone', 'Pandanus amaryllifolius extract', 'Pancratium maritimum extract', 'Panaxydol', 'Panaxadiol', 'Pallenis spinosa essential oil', 'Paeoniflorin', 'Paclitaxel', 'Pachystermine B', 'Pachystermine A', 'Pachypodium lamerei extract', 'Pachymic acid', 'PH-1 (4-methyl-5-oxo-tetrahydrofuran-3-yl acetate)', 'P. macrocarpa fruit ethyl acetate fraction (PMEAF)', 'P-coumaric acid', 'Oxyresveratrol', 'Oxymatrine', 'Ovatodiolide', 'Ouregidione', 'Ouabain', 'Osthole', 'Oroxylum indicum (PHO) extract', 'Oroxylin A', 'Orobanche crenata extract', 'Origanum majorana extract', 'Origanum compactum essential oil', 'Origanum acutidens extract', 'Orientin', 'Oridonin', 'Orbignya speciosa extract', 'Oplopantriol A', 'Oplopandiol acetate', 'Oplopandiol', 'Oplopanax horridus extract', 'Ophiopogonin D', 'Ophiobolin O', 'Oolong Tea Extract', 'Onosma hookeri Clarke. var. longiforum Duthie (OHC-LD) extract', 'Onobrychis ebenoides extract', 'Oliveria decumbens essential oil', 'Oleuropein', 'Oleiferoside B', 'Oleic acid', 'Oleanolic acid', 'Oleamide', 'Olea europaea extract', 'Oldenlandia diffusa extract', 'Odoratisol A', 'Octyl gallate', 'Ocimum gratissimum extract', 'Ocimum basilicum (OB) extract', 'Ochradenus arabicus extract', 'Obolactone', 'Novel cold-water-soluble polysaccharide (BEP)', 'Noscapine', 'Norstictic acid', 'Nordihydroguaiaretic acid (NDGA)', 'Nordamnacanthal', 'Norartocarpetin', 'Nobiletin', 'Nitidulin', 'Nitidine chloride', 'Nimbolide', 'Niloticin', 'Nigranoic acid', 'Nigella sativa extract', 'Nidorellol', 'Nexrutine', 'Nepetin', 'Neotriptonoterpene', 'Neotanshinlactone', 'Neohesperidin', 'Neocaesalpin AE', 'Neocaesalpin AD', 'Neocaesalpin AC', 'Neocaesalpin AB', 'Neocaesalpin AA', 'Neobractatin', 'Nemorosone', 'Nelumbo nucifera extract', 'Neferine (NEF)', 'Nectandrin-B', 'Nauclorienine', 'Naringin', 'Naringenin', 'Napabucasin', 'Mzikonone', 'Myrtus communis essential oil', 'Myricetin', 'Mycoleptodiscin B', 'Muscadine grape skin extract (MSKE)', 'Muscadine grape extract (MGE)', 'Murraya koenigii leaf extract', 'Mulberry root bark extracts', 'Mulberry leaf lectin', 'Mulberrofuran G', 'Mukonal', 'Motherwort extract', 'Morusin', 'Moringa stenopetala extract', 'Moringa oleifera (MOLSr) extracts (M1S9)', 'Morin', 'Moracin P', 'Moracin O', 'Montanoa guatemalensis essential oil', 'Monosporasols B', 'Monosporasols A', 'Momordica cochinchinensis extract', 'Mollugin', 'Mitraphylline', 'Mistletoe extract (PS76A2)', 'Minecoside', 'Mimusops zeyheri seed oil', 'Micranthin B', 'Methyl-alpha-D-fructofuranoside', 'Methyl β-lilacinobioside', 'Methyl protoneodioscin (NSC-698791)', 'Methyl protogracillin (NSC-698792)', 'Methyl linderone (ML)', 'Methyl jasmonate', 'Methyl ferulate', 'Methyl caffeate', 'Methyl antcinate B', 'Methyl antcinate A', 'Methyl angolensate', 'Methyl 4-β-d-glucopyranosyl-ferulate', 'Meso-monomethyl dihydroguaiaretic acid', 'Meso-dihydroguaiaretic acid (MDGA)', 'Merulin C', 'Merulin A', 'Meriandra dianthera essential oil (MDEO)', 'Mentha arvensis extract', 'Melognine', 'Melissa officinalis extract', 'Melicotriphyllin C', 'Melicotriphyllin A', 'Melaleuca Alternifolia Concentrate', 'Maytansinoids', 'Matrine', 'Matricaria chamomilla extract', 'Matcha green tea (MGT)', 'Maslinic acid', 'Martynoside', 'Marrubium persicum extract', 'Marrubium crassidens extract', 'Marmin', 'Maprang seed extract', 'Mappiodoinin C', 'Mappiodoinin B', 'Mappiodoinin A', 'Mansorin-II', 'Mansorin-I', 'Mansorin-C', 'Mansorin-B', 'Mansorin-A', 'Mansorin III', 'Mansonone-N', 'Mansonone-G', 'Mangostanaxanthone VII', 'Mango polyphenolics', 'Mango kernel extract', 'Mangiferin', 'Mangifera zeylanica extract', 'Mangifera pajang kernel extract', 'Mangifera indica peels extract', 'Mangifera indica Extracts', 'Mammea F/BB', 'Mammea F/BA', 'Mammea C/BB', 'Mammea C/AB', 'Mammea C/AA', 'Mammea B/BB', 'Mammea B/AB', 'Mammea A/BB', 'Mammea A/BA', 'Mammea A/AD cyclo F', 'Mammea A/AD cyclo D', 'Mammea A/AD', 'Mammea A/AB cyclo F', 'Mammea A/AB cyclo D', 'Mammea A/AB', 'Mammea A/AA cyclo F', 'Mammea A/AA cyclo D', 'Mammea A/AA', 'Malayoside', 'Malabaricone C (mal C)', 'Maizediterpene B', 'Mahanine', 'Magnolol', 'Magnoflorine', 'Maesa macrophylla extract', 'Macrooxazole C', 'Macluraxanthone', 'Machilin D', 'Lyratol D', 'Lyratol C', 'Lyratol B', 'Lyratol A', 'Lycorine', 'Lycopene', 'Lycium barbarum polysaccharides(LBGP-I-3)', 'Lycium barbarum extract', 'Luteolin-7-O-glucoside', 'Luteolin and its oxidovanadium(IV) complex [VO(lut)(H2O)2]Na·3H2O (VOlut)', 'Luteolin', 'Lutein', 'Lupiwighteone', 'Lupinalbin D', 'Lupeol', 'Luotonin A', 'Lunasin', 'Luehea candicans extract', 'Lucidimine B', 'Loquat extract', 'Longirostrerones A', 'Longikaurin E', 'Longikaurin A', 'Lobeline', 'Lobatoside N', 'Livistona chinensis extract', 'Liriopem II (2)', 'Liriopem I (1)', 'Liriope platyphylla extract', 'Liquiritigenin', 'Lippia origanoides extract', 'Lippia citriodora essential oil', 'Linoleic acid', 'Lineariifolianoid E', 'Linalool', 'Limonin', 'Licochalcone B (LCB)', 'Licochalcone A (LCA)', 'Licoagrochalcone B', 'Licoagrochalcone A', 'Licoagrocarpin', 'Licania tomentosa extract', 'Licania rigida extract', 'Leucobryum bowringii extract', 'Leptopidine', 'Leptadenia pyrotechnica extract', 'Lentinula edodes mycelia extract', 'Lentinan (LNT)', 'Lemon extract', 'Lawsonia inermis extract', 'Lavandula angustifolia extract and essential oil', 'Lavandula Coronopifolia extract', 'Laurenditerpenol', 'Larrea tridentata extract', 'Larrea divaricata extract', 'Lapachol', 'Lantana camara extract', 'Lansiumarin C', 'Lansiumarin A', 'Lanostane', 'Lampranthus glaucus extract', 'Lampranthus aurantiacus extract', 'Laevifins G', 'Laevifins B', 'Laevifins A', 'LXY6090 - a novel manassantin A derivative', 'Kwanzoquinones E', 'Kwanzoquinones C', 'Kwanzoquinones B', 'Kwanzoquinones A', 'Kuwanon G', 'Kuwanon C', 'Kudonol C', 'Kudonol B', 'Kudonol A', 'Kudolignan B', 'Kudolignan A', 'Kopsifoline K', 'Kopsifoline J', 'Kopsifoline I', 'Kopetdaghinane A', 'Kongensin F (9)', 'Kongensin D (6)', 'Kongensin A (8)', 'Kongeniod B (7)', 'Kola acuminate extract', 'Kochia scoparia extract (MEKS)', 'Klugine', 'Kigelia Africana, Ximenia Caffra and Mimusops Zeyheri Seed Oils', 'Kievitone', 'Khz (fusion of Ganoderma lucidum and Polyporus umbellatus)', 'Khat (Extract of Catha edulis)', 'Kelussia odoratissima Mozaff. extract', 'Kanzonol Z', 'Kanzonol Y', 'Kanzonol X', 'Kanzonol W', 'Kanzonol U', 'Kanzonol C', 'Kanzonol B', 'Kahweol', 'Kaempferol-7 glucoside', 'Kaempferol-3-O-β-D-glucopyranoside4′-methly ether', 'Kaempferol-3-O-β-D-(6″-n-butyl glucuronide)', 'Kaempferol-3-O-β-D-(6″-methyl glucuronide)', 'Kaempferol-3-O-rhamnoside', 'Kaempferol-3-O-methyl ether', 'Kaempferol-3-O-glucuronide', "Kaempferol-3,4' -O-dimethyl ether", 'Kaempferol 3-rutinoside', 'Kaempferol 3-O-β-d-mannuronopyranoside', 'Kaempferol 3-O-β-d-mannopyranoside', 'Kaempferol 3-O-β-D-rutinoside', 'Kaempferol 3-O-α-l-rhamnopyranosyl-(1→6)-β-d-glucopyranoside', 'Kaempferol', 'Kaempferide', 'Kadsuphilactone B', 'KTH-13-amine-monophenyl', 'Juniperus communis extract (#46)', 'Juniperus communis L. extract', 'Julibroside J19', 'Julibroside J18', 'Julibroside (J31)', 'Julibroside (J30)', 'Jujuboside B', 'Juglone', 'Juglans regia extract', 'Juglanin', 'Jolkinolide B', 'Jolkinol A', 'Jerantinine A', 'Jatrorrhizine', 'Jatrophone (JA)', 'Jatropha gossypifolia extract', 'Jatropha curcas extract', 'Jatamanvaltrate P', 'Jaceosidin', 'Jacein', 'Jaboticaba peel extract (JPE)', 'Isoxanthohumol', 'Isoxanthochymol', 'Isotrilobine', 'Isotoosendanin (ITSN)', 'Isothymusin', 'Isotetrandrine', 'Isoscopoletin', 'Isoschaftoside', 'Isorhamnetin', 'Isoquercitrin', 'Isopinosylvin A', 'Isopicrinine', 'Isoneorautenol', 'Isonarthogenin 3-O-α-L-rhamnopyranosyl-(1 → 2)-[α-L-rhamnopyranosyl-(1 → 4)]-β-D-glucopyranoside', 'Isomesuol', 'Isoliquiritigenin', 'Isoliensinine', 'Isolate f6l', 'Isojiangrubesin E', 'Isojiangrubesin B', 'Isoglabrone', 'Isoforrethin-D', 'Isoflavones extracted from chickpea sprouts (ICS)', 'Isodispar B', 'Isocryptotanshinone', 'Isocowanin', 'Isochamanetin', 'Isocephaeline', 'Isobavachalcone', 'Isoazadironolide', 'Isoasarone', 'Isoadenolin I', 'Iso-antirhine', 'Iris Nertschinskia extract', 'Inuviscolide', 'Ingenol-3-palmitate', 'Ingenol-3- myristinate', 'Ingenol-20-myristinate', 'Indole[3,2-b] carbazole', 'Indole-3-carbinol', 'Indole diketopiperazines', 'Icetexatriene-3', 'Icetexane-1', 'Icaritin', 'Icariol', 'Icariin', 'Icacinlactone F', 'Hyptadienic acid', 'Hyperoside', 'Hypericum salsugineum extracts', 'Hyperforin', 'Hyperelodiones C', 'Hyperelodiones B', 'Hyperelodiones A', 'Hygrophorus eburneus extract (HEAE)', 'Hydroxytyrosol', 'Hydroxyl safflower yellow B (HSYB)', 'Hydrocortisone acetate', 'Hyacinthus orientalis extract', 'Huanglian extract', 'Huaier extract', 'Houttuyninum', 'Horse chestnut extract (HCE)', 'Horminone', 'Honokiol', 'Homoharringtonine', 'Hispidulin', 'Hispidol B', 'Hispaglabridin B', 'Hispaglabridin A (16)', 'Hirsutine', 'Hinokitiol', 'Hibiscus syriacus extract', 'Hibiscus rosa-sinesis extract', 'Hibiscus extract', 'Hibifolin', 'Hexadecanoic acid', 'Heteroclitalactone E', 'Heteroclitalactone D', 'Heteroclitalactone C', 'Heteroclitalactone A', 'Hesperidin', 'Hesperetin', 'Herbacetin', 'Helenalin', 'Hederagenin 3-O-β-D-glucopyranosyl-(1→4)-β-D-glucopyranosyl-(1→3)-α-L-rhamnopyranosyl-(1→2)-α-L-arabinopyranoside', 'Hedeoma drummondii\xa0extract', 'Hebecarposide H', 'Hebecarposide C', 'Hawthorn fruit (HF) extract', 'Hawaiinolide A', 'Harmine hydrochloride', 'Harmine', 'Hancornia speciosa extract', 'Halophila ovalis extract', 'Halofuginone', 'Gyrophoric acid', 'Gypenoside LI', 'Gypenoside 5', 'Guizhi Fuling Decoction (GFD)', 'Gugulipid', 'Guggulsterone', 'Grifolin', 'Grifola frondosa extract (GFPs)', 'Graviola extract', 'Grape seed extract', 'Grape leaves extract', 'Grammatophyllum speciosum extract', 'Gracillin (NSC-698787)', 'Govaniadine', 'Goniothalamin', 'Gomisin J', 'Gomisin H', 'Gomisin G', 'Gnetin H', 'Glyinflanin H', 'Glycyrrhizin', 'Glycyrrhizic acid', 'Glycyrrhiza glabra extract', 'Glycyrrhetinic acid', 'Glycybridin K (11)', 'Glycybridin J (10)', 'Glycybridin I (9)', 'Glycybridin H (8)', 'Glycybridin G (7)', 'Glycybridin F (6)', 'Glycybridin E (5)', 'Glycybridin D (4)', 'Glycybridin C (3)', 'Glycybridin B (2)', 'Glycybridin A (1)', 'Glycitein', 'Glyceryl 1-monopalmitate', 'Glyceollin', 'Glucostrophalloside', 'Glossogyne tenuifolia extract', 'Glehnia littoralis extract', 'Gleditsia sinensis extract', 'Glaucocalyxin H', 'Glaucium flavum extract', 'Glaucine', 'Glandora rosmarinifolia essential oil', 'Glabrone (35)', 'Glabrol', 'Glabridin', 'Glabrene', 'Girinimbine', 'Ginsenoside Rp1', 'Ginsenoside Rg5', 'Ginsenoside Rg3', 'Ginsenoside Rg1', 'Ginnalin A', 'Ginkgolic acid C17:2', 'Ginkgolic acid C17:1', 'Ginkgolic acid C15:1', 'Ginkgolic acid C13:0', 'Ginkgo biloba extract', 'Ginger polysaccharides', 'Germacrone', 'Geranyl (3-GAP)', 'Geraniin', 'Genkwanin VIII', 'Genkwanin III', 'Genkwanin', 'Genistein', 'Genipin', 'Gedunin', 'Garlic extract', 'Garjasmine', 'Garcinone C', 'Garcinol', 'Garcinia quaesita extract', 'Garcinia mangostana extract', 'Garcinia hombroniana extract', 'Garcimangostanol', 'Ganoderma lucidum extract', 'Ganoderiol E', 'Ganoderic acid A (GA-A)', 'Gamma-linolenic acid (GLA)', 'Gambogic acid', 'Gambogenic acid', 'Gallic acid', 'Galium aparine extract (GA MeOH)', 'Galbanic acid', 'Galangin', 'Galangal extract (GE)', 'Galanal B', 'Galanal A', 'Gaillardin', 'Furanodiene', 'Fumarprotocetraric acid', 'Fukinolic acid', 'Fucoxanthin', 'Fucoidan', 'Friedelin', 'Fresh Yellow Onion', 'Fraxetin (FXT)', 'Frangula alnus extract', 'Fraction 35 (F035)', 'Fortunin E', 'Formosanin C', 'Formononetin', 'Foeniculum vulgare extract', 'Flexuvarol B', 'Flexuvarol A', 'Flaxseed aglycone rich extracts (FSARE)', 'Flaxseed', 'Flavopereirine', 'Flavonoid extract of wheat germ', 'Flavokawain A', 'Flavensomycinoic acid', 'Flavanthrin\xa0', 'Flammulina velutipes extract (FVE)', 'Fisetin', 'Fischerisin A', 'Ficus septica extract', 'Ficus salicifolia latex', 'Ficus hispida extract', 'Ficus crocata extracts', 'Ficus carica extracts', 'Fevicordin-A (FevA)', 'Feselol', 'Ferutinin', 'Ferulin C', 'Ferulic acid', 'Ferulago carduchorum essential oil', 'Ferulago angulata extract', 'Ferula hermonis Boiss. extract', 'Ferula assa-foetida essential oil', 'Fenugreek extract', 'Fennel essential oil', 'Farnesylthiosalicylic acid (FTS)', 'Farnesiferol A', 'Falcarinol', 'Falcarindiol 3-acetate', 'Falcarindiol 3,8-diacetate', 'Falcarindiol', 'F1012-2', 'Extracts of Rheum emodi Wall. ex Meissn. rhizome.', 'Extracts of Paeonia suffruticosa', 'Extracts of Agaricus albus', 'Extract of garden cress', 'Extract of Spondias pinnata', 'Extract of Serenoae repentis fructus', 'Extract of Origanum munzurense (OME)', 'Extract of Centella asiatica', 'Extra-Virgin Olive Oil (EVOO)', 'Evolvulin I', 'Evodiamine', 'Euterpe oleracea Mart. extract', 'Eurycoma longifolia extract', 'Eurycoma longifolia Jack extract', 'Euphosorophane A', 'Euphorin H', 'Euphorin E', 'Euphorin C', 'Euphorbia tirucalli Extracts', 'Euphorbia szovitsii Fisch & C.A. Mey extract', 'Euphorbia microsciadia extract', 'Euphorbia hirta extract', 'Euphorbia factor L1', 'Euphoranginone D (3)', 'Euphopubescenol', 'Euphopubescene', 'Eupatolide', 'Eupalinolide O', 'Eupafolin', 'Eugenol', 'Eugenia pyriformis (EP-EO) essential oil', 'Eugenia jambolana extract (JFE)', 'Euchrestaflavanone A', 'Euchrenone a5', 'Eucalrobusone C', 'Ethyl-beta-D-fructopyranoside', 'Essential oil of Juniperus communis', 'Essential oil and methanol extract from Rumex nervosus', 'Esculetin', 'Esculentoside A', 'Escin Ia', 'Erythronium japonicum extracts', 'Erythro-austrobailignan-6 (EA6)', 'Erythrina corallodendron essential oil', 'Erycibe elliptilimba extract', 'Erybacin', 'Erucin', 'Eriocitrin', 'Eriocalyxin B', 'Erianin', 'Ergost-25-ene-3,6-dione,5,12-dihydroxy-,(5.alpha.,12.beta.)', 'Epunctanone', 'Epoxyazadiradione', 'Epoxy clerodane diterpene (ECD)', 'Epoxy clerodane diterpene', 'Epipremnum pinnatum extract', 'Epipachysandrine-A', 'Epipachysamine E', 'Epipachysamine B', 'Epimedonin L', 'Epimedium brevicornum extract', 'Epigallocatechin gallate (EGCG)', 'Epicatechin gallate', 'Epicatechin', 'Entelon', 'Ent-kaurane-3-oxo-16β,17-diol (4)', 'Ent-Kaur-16- en-19-oic acid', 'Ent-1β,3β,16β,17-tetrahydroxyatisane', 'Ent-1β,3α,16β,17-tetrahydroxyatisane', 'Ent-17-acetoxy-16β-hydroxykauran-3-one', 'Ent-16β-H-3-oxokauran-17-ol (5)', 'Endophytes of noni', 'Emodin', 'Emodic-acid', 'Emetine', 'Emblica officinalis extract', 'Embelin', 'Ellipticine', 'Ellagic acid', 'Eleutherine', 'Elephantopus scaber extract', 'Elephantopus mollis Kunth extract', 'Eleostearic acid (alpha-ESA)', 'Elaeodendroside C', 'Elaeodendroside B', 'Elaeis guineensis extract', 'Eicosapentaenoic acid', 'Eichlerianic acid', 'Effususin B', 'Effusanin B', 'Effusanin A', 'Eclipta alba extract (CFEA)', 'Echinophora platyloba extract', 'Ebracteolatain A', 'Ebractenoid F', 'Ebractenoid C', 'Ebenosin', 'Ebenfuran III', 'Ebenfuran II', 'Ebenfuran I', 'E/Z-acetoside', 'E-salignone', 'E-acetylmelodorinol', 'Dysobinin', 'Dunaliella tertiolecta extract', 'Dryofracoumarin A', 'Dracocephalum surmandinum essential oil', 'Docosatrienoic acid (DTA)', 'Docosadienoic Acid (DDA)', 'Dittrichia viscosa extract', 'Disparinol A', 'Diospyros shimbaensis extract (Methanol extract)', 'Diospyros shimbaensis extract (Methanol crude extract from the root barks)', 'Diospyros shimbaensis extract (Methanol crude extract from the leaves)', 'Diospyros shimbaensis extract (Isohexane extract)', 'Diospyros shimbaensis extract (Dichloromethane extract)', 'Diospyros shimbaensis extract (Dichloromethane crude extract from the leaves)', 'Diospyros lycioides extract', 'Diospyros lotus extract', 'Diosmin', 'Diosmetin', 'Diosgenin', 'Dioscorealide B', 'Dioscorea bulbifera extract', 'Dioscin', 'Dillenia suffruticosa extract(EADs)', 'Dihydroconiferyl alcohol', 'Dihydrocapsaicin', 'Dihydro-β-agarofuran', 'Didymin', 'Dicranopteris linearis extract (MEDL)', 'Dichlorodiaportinol A', 'Dichamanetin', 'Dibenzoylmethane', 'Diallyl trisulfide', 'Diallyl disulphide', 'Diallyl disulfide', 'Desoxyrhaponticin', 'Desglucocheirotoxin', 'Descurainia sophia volatile oil', 'Desacetyl nimbinene (DAN)', 'Derrone', 'Derivatives of caffeic acid (fraction F-I )', 'Deoxyrhapontigenin', 'Deoxypodophyllotoxin', 'Deoxyelephantopin', 'Dentatin (DTN)', 'Dendrophthoe pentandra extract', 'Demethylzeylasterone', 'Demethylzeylasteral (T-96)', 'Demethylcryptojaponol', 'Demethoxybisabolocurcumin ether', 'Delphinidin-3-glucoside (Dp-3-gluc)', 'Delphinidin', 'Delcosine', 'Dehydrovomifoliol', 'Dehydrothyrsiferol', 'Dehydrooopodin', 'Dehydroglyceollin I', 'Dehydroeburicoic acid', 'Dehydrodicatechin A', 'Dehydrocorydaline', 'Deguelin', 'Deacetyl-mycoepoxydiene', 'Daucus carota oil extract', 'Daucosterol linolenate (DLA)', 'Daucosterol Linoleate', 'Daucosterol', 'Datura stramonium (DS) and Datura inoxia (DI) ethyl acetate leaf extract', 'Dark sweet cherries', 'Daphnoretin', 'Daphne gnidium L. extract', 'Danshen', 'Dandelion extract', 'Dalvelutinane B', 'Daidzin', 'Daidzein', 'Dahliane C', 'Dahliane B', 'DLBS1425', 'D Rhamnose β-hederin (DRβ-H)', 'Cystoseira crinita extract', 'Cystoseira barbata extract (CBAE)', 'Cyperus rotundus extract (EECR)', 'Cyperus longus extract', 'Cynaroside', 'Cynara cardunculus extract', 'Cynanchum paniculatum extract', 'Cymbopogon schoenanthus essential oil', 'Cymbopogon nervatus essential oil', 'Cymarin', 'Cyclovirobuxine D (CVB-D)', 'Cyclopside 1', 'Cyclopia genistoides extract', 'Cyanidin-3-glucoside (Cy-3-gluc)', "Cyanidin-3-O-[2''-O-(galloyl)-6''-O-(rhamnosyl)-β-glucoside]", "Cyanidin-3-O-[2''-O-(galloyl)- β-glucopyranoside]", "Cyanidin-3-O-(6''-O-α-rhamnopyranosyl- β-glucopyranoside", 'Cyanidin-3-O- β- glucopyranoside', 'Cuscutic resinoside A', 'Cuscutamine', 'Cuscuta chinensis extract', 'Curcumol', 'Curcumin and berberine combination', 'Curcumin', 'Curcuma zedoaria extract', 'Cuphea aequipetala Extracts', 'Cudraxanthone I', 'Cudraticusxanthone A', 'Cudraflavone A', 'Cucurbitacin E', 'Cucurbitacin D', 'Cucurbitacin B', 'Cucumol B', 'Cryptoyunnane D', 'Cryptoyunnane B', 'Cryptoyunnane A', 'Cryptotanshinone', 'Cryptojaponol', 'Crude extract of piperine free P. nigrum', 'Crovatin', 'Croton gratissimus extract', 'Crokongendin B (2)', 'Crokongendin A (1)', 'Crocin', 'Crinum amabile extract', 'Cratoxylum cochinchinense extract', 'Cratoxy formosum extract', 'Cratochinone B', 'Crataegus gracilior extract', 'Crassin (C4)', 'Cranberry extract', 'Coumestrol', 'Cotylenin A', 'Cotinus coggygria extract', 'Costunolide', 'Coryllus avellana extract', 'Corydalis saxicola Bunting total alkaloids (CSBTA)', 'Corosolic acid', 'Cornus mas extract', 'Cornudentanone', 'Corn silk extract', 'Coriolus versicolor extract', 'Coriolic acid', 'Corilagin', 'Coriandrum sativum extract', 'Cordyceps sinensis extract', 'Cordyceps militaris extract(AECM)', 'Cordycepin', 'Cordatine', 'Coptisine', 'Coprinus comatus extract', 'Coprinellus sp. (CME)', 'Convalloside', 'Convallatoxin', 'Convallatoxal', 'Conophylline', 'Conocarpan', 'Conjugated linoleic acid', 'Conferone', 'Condensed tannins', 'Comophoroside A', 'Commiphora africana extract', 'Colocynth Extracts', 'Coleus hybridus extract', 'Colchicine', 'Coffee extract', 'Codonolactone', 'Coclaurine', 'Clove', 'Clinacanthus nutans extract (CN)', 'Clerodendrum viscosum extract', 'Clematis hederagenin saponin (CHS)', 'Cleistochlamys kirkii extract', 'Cleistenolide', 'Clausenalansimin A', 'Clausena excavata stem bark extract', 'Clausena excavata root extract', 'Clauselenisin A', 'Clausehainanines E', 'Clausehainanines D', 'Clausehainanines C', 'Clausehainanines B', 'Clausehainanines A', 'Clauhainanin A', 'Claucoumarin D', 'Cladosporol A', 'Cladosporium oxysporum extract', 'Cladosporium cladosporioides 2', 'Cladonia rangiformis extract', 'Cladonia convolute extract', 'Citrusinol', 'Citrus sphaerocarpa extract', 'Citrus lemon extract', 'Citrus aurantifolia extract', 'Citronellol', 'Citronellal', 'Citracridone I', 'Cis-khellactone', 'Cis-isoshinanolone', 'Cis-epsilon-viniferin', 'Cis-3-(3,4-dimethoxyphenyl)-4-[(E)-3,4-dimethoxystyryl] cyclohex-1-ene', 'Cirsium rivulare essential oil', 'Cirsium palustre essential oil', 'Cirsimaritin', 'Cinnamomum cassia extract', 'Cinnamic Acid', 'Cinnamaldehyde', 'Cimiracemoside A', 'Cimigenol', 'Cimicifuga racemosa extract', 'Cimicifoetiside B', 'Cimicifoetiside A', 'Cichorins F', 'Cichorin E', 'Cichorin D', 'Chrysin', 'Christia vespertilionis extract', 'Chlorogenic acid', 'Chlorella minutissimma extract', 'Chinese propolis extract (CPWE)', 'Chinese licorice extract', 'Chimnitensin F', 'Chimnitensin E', 'Chimnitensin D', 'Chimnitensin C', 'Chimnitensin B', 'Chimnitensin A', 'Chimaphilin', "Chicory's extract", 'Chickpea protease inhibitor concentrate', 'Chestnoside B', 'Cheliensisin A', 'Chelidonium majus extract', 'Chelidonine', 'Cheiranthoside', 'Chebulinic acid (CA)', 'Changnanic acid', 'Chamanetin', 'Chamaejasmenin B', "ChalcEA (2',4'-dihydroxy-6-methoxy-3,5-dimethylchalcone)", 'Cercosporamide', 'Cepharanthine', 'Cephalinone-F', 'Cephalinone D', 'Centaurea bruguierana', 'Centaurea aegyptiaca extract', 'Celastrus hindsii extract', 'Celastrol', 'Cedrelone', 'Caulis Spatholobi extract (SET)', 'Caudatin', 'Catechin', 'Cassyformin', 'Casearin G', 'Carvacrol', 'Carrichtera annua extract', 'Carpesium abrotanoides extract', 'Caroguaianolide E', 'Caroguaianolide D', 'Caroguaianolide C', 'Caroguaianolide B', 'Caroguaianolide A', 'Carnosol', 'Carnosic acid', 'Cardamonin', 'Carabrolactone B', 'Capsicum annuum extract (CAP)', 'Capsanthin', 'Capsaicin', 'Capillarisin', 'Canthin-6-one', 'Cannogenol', 'Cannabidiolic acid', 'Candidone', 'Camptothecine', 'Camphoratin J', 'Camphoratin F', 'Camphoratin E', 'Camellianin A', 'Camellia sinensis extract', 'Camalexin', 'Calycosin', 'Calycopterin', 'Calotropis procera extract', 'Calotropagenin', 'Calophyllum inophyllum extract', 'Calendula arvensis L. extract', 'Calcitrinone A', 'Cajanol', 'Cajanin stilbene acid', 'Caffeic acid phenethyl ester (CAPE)', 'Caffeic acid', 'Caesalpinia spinosa extract (P2Et)', 'Cabralealactone 3-acetate-24-methyl ether', 'Butein', 'Butea monosperma extract', 'Bursera copallifera extract', 'Bupleurum marginatum extract', 'Budlein A methylacrylate (BAM)', 'Bryonolic acid', 'Bryonia multiflora extract', 'Bryonia dioica extract', 'Brusatol', 'Bruceine D', 'Bruceine B', 'Bruceantin', 'Bruceae fructus oil (BO)', 'Brucea javanica Seed extract', 'Broussoflavonol B', 'Bromelain proteinase (F9)', 'Bromelain', 'Broccoli sprouts (BSp)', 'Britannin', 'Brevione I', 'Brevione A', 'Brevilin A', 'Brazilin A', 'Brazilin', 'Brassica oleracea juice', 'Bowman-Birk protease inhibitor', 'Boswellia thurifera extract', 'Boswellia ovalifoliolata extract (BL EthOH)', 'Boswellia frereana extract (BFE)', 'Boletus edulis extract', 'Boldine', 'Boerhaavia diffusa extract', 'Boehmeriasin A', 'Blumenol A', 'Blueberry extract', 'Blackberry extract', 'Black raspberry', 'Black cohosh extract', 'Black Splendor plum extract', 'Bisdemethylcurcumin', 'Bisabolocurcumin ether ', 'Bis(4-hydroxy-2H-chromen-2-one) coumarin (4HC)', 'Biochanin A', 'Bilberry extract', 'Bikaverin', 'Bigelovii A', 'Biebersteinia multifida extract', 'Bezielle (BZL101)', 'Betulinic acid', 'Betulin', 'Betavulgarin', "Beta-sitosteryl-3beta-glucopyranoside-6'-O-palmitate", 'Beta-carotene', 'Beta-Sitosterol', 'Bergapten (Bg)', 'Berberiside D', 'Berberiside A', 'Berberis vulgaris extract', 'Berberine', 'Berbamine', 'Benzyl isothiocyanate', 'Benzoiisovanillin', 'Benzo[b]tryptanthrin', 'Bavachin', 'Bauhinia variegata extract', 'Barbigerone', 'Baneh gum', 'Baneh extract', 'Balanophonin', "Baker's yeast", 'Baicalin', 'Baicalein-8-sodium sulfonate (BcS)', 'Baicalein', 'Baeckea frutescens extracts', 'Bacopa monnieri extract', 'Açai extract', 'Azadironolide', 'Azadirone', 'Azadirachta indica extract', 'Aviculin', 'Avicennia marina extract', 'Avenanthramide-C', 'Aurovertin B', 'Auraptene', 'Aucubin', 'Aucklandia Lappa Decne extract', 'Atropatanene', 'Atraric acid (PF-2)', 'Atranorin', 'Astragaloside IV', 'Astragalin', 'Aspidinol', 'Asperuloside acid', 'Aspergillusidone D', 'Aspergillus nidulans extract', 'Asaricin', 'Asafoetida', 'Artonin E', 'Artocarpus heterophyllus extract', 'Artocarpin', 'Artichoke Polyphenols', 'Artemisinin', 'Artemisinic acid', 'Artemisia vulgaris extract', 'Artemisia santolina extract', 'Artemisia princeps smoke and water extracts', 'Artemisia princeps extract', 'Artemisia persica extract', 'Artemisia indica extract', 'Artemisia herba alba extracts', 'Artemisia diffusa extract', 'Artemisia ciniformis extract', 'Artemisia biennis extract', 'Artemisia annua herbal preparation', 'Artemisia annua extract', 'Artemisia absinthium extract', 'Artemisia Stolonifera extract (AST)', 'Artemisia Selengensis extract(ASE)', 'Artemisia Keiskeana extract (AKE)', 'Artemisia Capillaris extract (ACA)', 'Artelastin', 'Artahongkongol A\xa0', 'Artahongkongene F', 'Artahongkongene E', 'Artahongkongene D', 'Artahongkongene C', 'Artahongkongene B', 'Artahongkongene A', 'Artahainanol A', 'Aronia melanocarpa extract', 'Arnicolide D', 'Arjunolic acid (AA)', 'Aristolochia foetida Kunth extract', 'Arisaema tortuosum extract', 'Areca catechu extract', 'Ardisiphenol C', 'Ardisiphenol B', 'Ardisiphenol A', 'Ardisianone', 'Ardisianol', 'Ardisiacrispins B', 'Ardicrenin', 'Arctiin', 'Arctigenin', 'Arachidonic acid', 'Arachidin-3', 'Arachidin-1', 'Apple extracts', 'Apomorphine', 'Apodytes dimidiata extract', 'Apigenin 7-O-β-d-glucopyranoside', "Apigenin 4'-pernyl-8-glucopyranosyl -7-O-α-glucopyranoside", "Apigenin 4'-geranyl-8-glucopyranosyl-7-O-α-glucopyranoside", 'Apigenin', 'Antroquinonol (AQ)', 'Antrodin C', 'Antrodia cinnamomea extract', 'Antrocamphin A', 'Antirhine', 'Antiarotoxinin A', 'Antiaroside I', 'Antiaroside H', 'Antiaroside G', 'Antiaroside F', 'Antiaroside E', 'Antiaroside D', 'Antiaroside C', 'Antiaroside A', 'Antialloside', 'Anthocyanin', 'Antcin-A', 'Antcin A', 'Antcamphorol H', 'Antcamphin L', 'Antcamphin K', 'Antcamphin J', 'Antcamphin I', 'Antcamphin H', 'Antcamphin G', 'Antcamphin F', 'Antcamphin E', 'Antcamphin B', 'Antcamphin A', 'Anoectochilus formosanus extract', 'Annurca apple polyphenol extract (APE)', 'Annonacin', 'Annona muricata extract', 'Annona cherimola ethanolic leaf extract (AELE)', 'Annomontacin', 'Annomocherin', 'Annoglaxin', 'Angustifolianin', 'Angeloylgomisin H', 'Angelica sinensis polysaccharide', 'Anemopsis californica extract', 'Androstan glycoside', 'Andrographolide', 'Anastatica hierochuntica extracts', 'Anacardic acid', 'Amygdalin', 'Amplexicaule A', 'Ampelopsin E', 'Ampelopsin C', 'Ampelopsin A', 'Ampelopsin', 'Amorphophallus paeoniifolius extract', 'Amorphophalli rhizoma extract', 'Amooranin', 'Amoora rohituka extract', 'Amoora chittagonga extract', 'American ginseng extract', 'Alysicarpus vaginalis extract', 'Alterporriol L', 'Alterporriol K', 'Alternate C', 'Alpinia pahangensis extract', 'Alpinia nantoensis extract', 'Alpinia galanga rhizhome extract', 'Alpha-lipoic acid', 'Alpha-Turmerone', 'Alpha-Santalol', 'Aloin', 'Aloe-emodin', 'Aloe vera extract', 'Aloe perryi extract', 'Allyl Isothiocyanate', 'Allium sivasicum (AS) extract', 'Allium hirtifolium extract', 'Allium bakhtiaricum extracts', 'Allium autumnale extract', 'Allium atroviolaceum extract (FAA)', 'Alliin', 'Allicin', 'Alkylresorcinol C', 'Alkylresorcinol B', 'Alkylresorcinol A', 'Alizarin', 'Alisol A', 'Alisma canaliculatum extract', 'Albicanol', 'Albafuran C', 'Alangine', 'Akihalin', 'Ajwa Dates Pulp Extract', 'Ajuga bracteosa extract', 'Ailanthone', 'Agrimonia pilosa extract', 'Aglaiabbreviatin F (AA-6)', 'Aglaiabbreviatin E (AA-5)', 'Ageratum conyzoides extract', 'Agave americana extract', 'Affinoside T', 'Affinisine', 'Aegyptinone A', 'Aegle marmelos extract', 'Adzuki bean extract', 'Adonioside B', 'Adonioside A', 'Adiantum capillus veneris (ACV) extract', 'Adenium obesum extract', 'Actinocephalus divaricatus extract', 'Actinidia chinensis extract', 'Acteoside', 'Actein', 'Acridocarpus orientalis extract', 'Achyrobichalcone', 'Achyranthoside H methyl ester', 'Achyranthes bidentata Blume extract', 'Acetoxyscirpendiol', 'Acalypha fruticosa Forssk extract', 'Acacia etbaica extract', 'Acacia catechu extract (ACME) ', 'Acacetin', 'Abyssinone II', 'Abutilon theophrasti extract', 'Abifadine E', 'AG36', '9β,13β-epoxy-7-abietene', '9-methoxycanthin-6-one', '9-methoxy-camptothecin', '9-methoxy-18,19-dehydrocamptothecin', '9-O-demethyltrigonostemone', "9, and 3-methoxy-3'-prenylnaringenin", '9 - hydroxycalabaxanthone', '8-prenylnaringenin (8-PN)', '8-prenyl-phaseollinisoflavan', '8-methoxydihydrochelerythrine', '8-hydroxyartabonatine C', '8-epi-inuviscolide', '8-deoxygartanin', '8-[(2E)-6-oxo-3,7-dimethyloct-2-enyloxylpsoralen', '8,8′-Oxo-biplumbagin', "8,2'-Diprenylquercetin 3-methyl ether", '7′-methoxy-3′-O-demethyl-tanegool-9-O-β-d-glucopyranoside', '7β-acetoxy-20-hydroxy-19,20-epoxyroyleanone (compound 1)', '7β-(3-Ethyl-cis-crotonoyloxy)-1α-(2-methylbutyryloxy)-3,14-dehydro-Z-notonipetranone (ECN)', '7α-hydroxy-β-sitosterol', '7-oxodioscin', '7-octenoic acid', '7-hydroxy, 5-methoxy, methyl cinnamate (1)', '7-acetylaltholactone', '7-O-methylhorminone (5)', '7-O-beta-D-glucopyranosylchrysin', '7-O-acetyl-12-O-benzoyl-3β,7β,12β,14β-tetrahydroxy-17β-(3-methylbutyl-O-acetyl-1-yl)-androstan-3-ylO-β-D-glucopyranosyl-(1 → 4)-6-deoxy-β-D-allopyranosyl-(1 → 4)-β-D-cymaropyranosyl-(1 → 4)-β-D-cymapyranosyl-(1→ 4)-β-D-cymaropyranoside', '7-Hydroxylsolajiangxin I', '7-Hydroxy coumarin', '7,2′-dihydroxy-4′-methoxy-8-(3-methyl-2-butenyl) isoflavanone', '7,15-isopimaradien-3β,19-diol', '7,14- O-(1-methylethylidene)oridonin', "7, 3', 5'-trihydroxyflavanone", "7',8'-Dihydroobolactone", '6β-hydroxysclareol', '6β-hydroxy-14α-epoxysclareol', '6β, 14α-dihydroxy-15-acetoxysclareol', '6-shogaol', '6-prenylquercetin 3-methyl ether', '6-prenylnaringenin (6-PN)', '6-methoxy-2E,9E-humuladien-8-one', '6-gingerol', '6-Prenylchrysin', '6-Hydroxyflavone', '6-(4,6-dioxo-1,4,5,6-tetrahydropyrimidin-2-yl-amino)hexanoic acid trifluoroacetate', '6,8-diprenylnarigenin (6,8-diPN)', '6,7-di-O-acetylsinococuline (FK-3000)', '6,7-dehydroroyleanone (3)', '6, 7-dimethoxy-1-(α-hydroxy-4-methoxybenzyl)-2-methyl-1, 2, 3, 4-tetrahydroisoquinoline', "6''-O-Acetylsaikosaponin D", "6''-O-Acetylsaikosaponin A", '5-methoxy-(E)-resveratrol 3-O-rutinoside', '5-hydroxymethyl-2-furalclehyde', '5-hydroxycamptothecin', '5-hydroxy-skytanthine hydrochloride', '5-hydroxy-9-methoxycamptothecin', '5-hydroxy-8,8-dimethyl-4-phenyl-9,10-dihydro-8H-pyrano-[2,3-f]chromen-2-one', '5-hydroxy-8,8-dimethyl-4-phenyl-6-propionyl-9,10-dihydro-8H-pyrano-[2,3-f]chromen-2-one', "5-hydroxy-3,7,3'-trimethoxyflavone-4'-O-beta-D-glucoside", '5-hydroxy-2-(2-hydroxy-ethylamino)-(1,4) naphthoquinone', '5-eudesmene-1b,4a-diol', '5-((8Z, 11Z, 14Z)-hexatriaconta-8, 11, 14-trienyl) benzene-1,3-diol', '5,7-dihydroxy-8-(3-methylbut-2-enyl)-4-phenylchromen-2-one', "5,7-dihydroxy-3-(3'-hydroxy-4',5'-dimethoxyphenyl)-6-methoxy-4H-chromen-4-one", '5,7-Dimethoxyflavone', "5,7- dihydroxy-3,4'-dimethoxyflavone", "5,7,8,4'-tetramethoxyflavone", "5,7,3',4'-tetrahydroxyisoflavone (THIF)", '5,6-anhydrohupehenine', "5,4'-dihydroxy-3'-methoxyflavanone-7-(6''-O-α-L-rhamnopyranosyl)-β-D-glucopyranoside", '5,3′-dihydroxy-6,7,8,4′-tetramethoxyflavanone (HLBT-100)', '5, 7, 4′-trihydroxy-3′-(3-methylbut-2-enyl)-3-methoxy flavone', '4β-hydroxy,10β-hydroperoxyl,5αH,7αH,8βH-guaia-1,11(13)-dien-8α,12-olide', '4α-hydroxy1βH-guaia-9,11(13)-dien-12,8α-olide', '4α-hydroxy-9β,10β-epoxy-1βH,5αH-guaia11(13)-en-8α,12-olide', '4beta,14-dihydro-3-dehydrozaluzanin C', '4-vinylphenol (4VP)', '4-hydroxyisophthalic acid (4-HIPA)', '4-desoxynivalenol', '4-coumaric acid methyl ester', '4-[(R)-1, 3-benzodioxol-5-ylhydroxymethyl]-3-(1, 3-benzodioxol-5-ylmethyl)dihydro-, (3S, 4R)-2(3H)-furanone', '4-O-α-l-rhamnopyran-osyl-(1 → 6)-α-d-manopyranosyl-(1 → 3)-α-l-rhamnopyranoside', '4-O-methylbalanophonin', '4-Acetylantroquinonol B (4-AAQB)', '4-(5-hydroxy-1,4-dioxo-1,4-dihydro-naphthalen-2-ylamino)-butyric acid methyl ester', '4, 4’-dihydroxy-3, 3’, 9-trimethoxy-9, 9’-epoxylignan', "4'-O-methyl-8-prenylnaringenin", "4',6'-dihydroxy-2',4-dimethoxy-5'-(2″-hydroxybenzyl)dihydrochalcone", '3′-hydroxy-4′-O-methylglabridin', '3β-trans-cinnamoyloxy-2α-hydroxy-urs-12-en-28-oic acid (CHUA)', '3β-methylamino 16-oxo 5,17(20) trans-pregnadiene', '3β-methylamino 16-oxo 5,17(20) cis-pregnadiene', '3β-hydroxy-30-(4-phenyl-1-piperazinyl)olean-12-ene-11,30-dione', '3β-[(α-L-arabinopyranosyl)oxy]-19α-hydroxyurs-12,20(30)-dien-28-oic acid 28-[6-O-acetyl-β-D-glucopyranosyl] ester', '3β-[(α-L-arabinopyranosyl)oxy]-19α,23-dihydroxyolean-12-en-28-oic acid 28-[6-O-acetyl-β-D-glucopyranosyl] ester', '3β,13β-dihydroxy-12,13-dihydroursolic acid (7)', '3β,13β-dihydroxy-12,13-dihydrooleanolic acid (1)', '3β,12β,13β-trihydroxy-12,13-dihydrooleanolic acid (2, TOA)', '3β, 6β, 19α, 24-tetrahydroxy-urs-12-en-28-oic acid', '3ß-hydroxylup-20(29)-ene-27,28-dioic acid', '3beta-trans-p-coumaroyloxy-2alpha-hydroxyolean-12-en-28-oic acid', '3b,16b-dihydroxy-23-O-acetyl-13b,28b-epoxyolean-11-ene 3-O-b-D-fucopyranoside.', '3b,16b,23,28-tetrahydroxy-11a-methoxy-olean-12-ene 3-O-b-Dfucopyranoside', '3b,16b, 28-trihydroxyl-11a-methoxy-olean-12-ene-O-b-D-fucopyranoside', '3b, 23, 28-trihydroxy-11, 13(18)-diene-16-one 3-O-b-D-glucopyranosyl-(1→3)-b-Dfucopyranoside.', '3alpha-O-acetyl-8,24-dien-tirucallic acid', '3R,8R-Dehydrofalcarindiol', '3-methoxyquercetin', '3-hydroxyglabrol', '3-hydroxyflavone', '3-demethyljacein', '3-O‑cis-p-coumaroyl-2α-hydroxyursolic acid', '3-O-α-L-arabinosyl oleanolic acid (3-O-L-AO)', '3-O-trans-p-coumaroyltormentic acid', '3-O-trans-p-coumaroylmaslinic acid', '3-O-trans-p-coumaroyl-2α-hydroxyursolic acid', '3-O-methylquercetin', '3-O-methylchangnanic acid', '3-O-cis-p-coumaroyltormentic acid', '3-O-cis-p-coumaroylmaslinic acid', '3-Deoxy-2β,16-dihydroxynagilactone E (B6)', '3-(5-oxohexyl)plumbagin', '3-(4-methoxyphenyl) quinolin-4(1H)-one', '3-(1, 3-benzodioxol-5-ylmethyl)-4-[(3, 4-dimethoxyphenyl)methyl]dihydro-, (3S-cis)-2(3H)-furanone', '3,5-bis((E)-3,4-dimethoxystyryl)isoxazole', "3,5,7,3',4'-pentahydroxyflavonol-3-O-beta-D-glucopyranoside", '3,4-dihydroxy-phenylacetic acid (PAA)', '3,4-didehydroglabridin', '3,4-bis-3,4,5-trimethoxybenzylidene-dihydrofuran (BTMB)', '3,3′-Biplumbagin', "3,3'-diindolylmethane (DIM)", "3,3'-di-O-methylquercetin", "3,3',4,4',5,5'-hexahydroxystilbene (M8)", '3,10,11-trimethoxy-1,2-methylenedioxy-7-oxoaporphine', "3'-hydroxygenkwanin", "3''-O-Acetylsaikosaponin A", '2′-O-demethybidwillol', '2β-hydroxy-8β-[5′-hydroxytigloyloxy]-costunolide', '2α-O-trans-p-coumaroyl-3β,19α-dihydroxy-urs-12-en-28-oic acid', '2α,3β-dihydroxy-urs-20(30)-en-28-oic acid', '2α,3β,28-trihydroxy-urs-20(30)-ene', '2α,3β,19α,23-tetrahydroxyurs-12-en-28-oic acid 28-[6-O-acetyl-β-D-glucopyranosyl] ester', '2alpha-hydroxyursolic acid', '2a-hydroxy pterodontic acid', '2a,3ß-dihydroxylup-20(29)-ene-27,28-dioic acid', '28-hydroxy-20-oxo-30-norlupane-3β-palmitate', '27-hydroxybullatacin', '25-chlorodeoxycimigenol-3-O-β-D-xylopyranoside', '25-O-acetylcimigenol-3-O-β-D-xylopyranoside', '25-O-acetylcimigenol-3-O-α-L-arabinopyranoside', '25-O-acetyl-7,8-didehydrocimigenol-3-O-β-d-(2-acetyl)xylopyranoside (ADHC-AXpn)', '23-nor-24-exomethylene- 3β, 6β, 19α-trihydroxy-urs-12-en-28-oic acid', '23-epi-26-deoxyactein', '23-O-acetylcimigenol-3-O-β-D-xylopyranoside', '23-O-Acetylsaikosaponin-a', '23- hydroxy-13b,28b-epoxy-olean-11-ene-16-one 3-O-b-D-glu-copyranosyl-(1  → 3)-b-D-fucopyranoside', '23,24-Dihydrocucurbitacin B', '20-O-salicyl-kidjoranin', '20(S)-25-methoxyl-dammarane-3beta, 12beta, 20-triol [20(S)-25-OCH3-PPD]', '2-methoxy-1, 4-naphthoquinone', '2-methoxy mucic acid', '2-hydroxy-6-tridecylbenzoic acid', '2-desoxy-4-epi-pulchellin', '2-deacetoxytaxinine J (2-DAT-J) ', '2-acetylfuro-1,4-naphthoquinone', '2-acetyl-7-methoxynaphtho[2,3-b]furan-4,9-quinone (AMNQ)', '2-[(3-methylbutoxy) carbonyl] benzoic acid', '2-Methylpyridine-1-ium-1-sulfonate', '2-Methoxystypandrone', '2-Methoxyestrone', '2-Hydroxysolajiangxin E', '2,4-di-tert-butylphenol (HU-2)', '2,3-seco-taraxer-14-en-2,3-lactone (pycanocarpine)', '2,3-dehydrokievitone', '2,3,9-Trimethoxypterocarpan', "2,3,5,4'-Tetrahydroxystilbene-2-O-β-d-glucoside (THSG)", "2'-hydroxy-3',4',6'-trimethoxychalcone", "2'-Hydroxyflavanone", "2'-Hydroxycinnamaldehyde", "2',4'-dihydroxy-6'-methoxychalcone", "2',4'-dihydroxy-6'-methoxy-3',5'-dimethylchalcone (ON-III)", "2',4'-dihydroxy-3'-(2-hydroxybenzyl)-6'-methoxychalcone", "2',3,4'-trimethoxy-5-hydroxy-trans-stilbene", "2',3,4',5,5'-pentahydroxy-cis-stilbene", "2''-O-Acetylsaikosaponin A", '1″,2″-dehydrocyclokievitone', '1β,11α,28-tyrihydroxy oleana-9(11),12-dien-3β-palmitate', '1b-hydroxy-11-methoxy-5- eudesmene', '1b,9b-dihydroxy-4aH-eudesma-5,11(13)- dien-12-oic acid', '1b,3a-dihydroxyeudesma-5,11(13)-dien-12-oic acid', '1b,11-dihydroxy-5- eudesmene', '1a-hydroxy-5,11-\neudesmadiene', '19-epi-voacristine', '18β-glycyrrhetinic acid', '18-hydroxydollabela-8(17)-ene', '17-ethylene-3,4-dihydroxy-5-pregnene-16-one', '17-ethylene-3,4-dihydroxy-14-methyl-18-norandrostene-16-one', '15-hydroxydehydroabietic acid', '15,16-Dihydrotanshinone I', '14α-hydroxy-15-chlorosclareol', '14α-hydroxy-15-acetoxysclareol', '14α-epoxysclareol', '14α, 15- dihydroxy sclareol', '14-deoxycoleon U (8)', '14-Deoxy-11,12-didehydroandrographolide', '13-methoxy-15-oxozoapatlin', '13-O-acetylsolstitialin A', '12α-methoxyl,5α,14β-dihydroxy-1α,6α,7β-triacetoxycass-13(15)-en-16,12-olide', '12α-acetoxy-7-deacetylazadirone', '12-methoxy-6,11,14,16-tetrahydroxy-17(15→16)-abeo-5,8,11,13-abietatetraen-3,7-dione', '12-O-benzoyl-20-O-acetyl-3β,12β,14β,20β-tetrahydroxy-pregnan-3-ylO-β-D-glucopyranosyl-(1→4)-β-D-glucopyranosyl-(1 → 4)-3-methoxy-β-D-ribopyranoside', '11α-hydroxy-lup-20(29)-ene-3β-palmitate', '11-epi-Toonacilin', "11,11'-dideoxyverticillin", '11, 16-Dihydroxypregn-4-ene-3, 20-dione', '10-hydroxy camptothecin', '10-O-acetylmacrophyllide', '1-phenyl-2-pentanol', '1-naphthyl isothiocyanate', '1-isomangostin', '1-hydroxy-5-pentyl-Quinone', '1-benzyl-I3C', '1-acetoxy-2-methoxy-6-tridecyl-4-hydroxybenzene', '1-acetoxy-2-methoxy-6-pentadecyl-4-hydroxybenzene', '1-O-trans-p-coumaroyl-2-O-trans-caffeoyl-α-L-rhamnopyranose', '1-O-methyl-6-acetoxy-5-pentadecylresorcinol', '1-O-methyl-6-acetoxy-5-(pentadec-10Z-enyl)resorcinol', '1-(4-hydroxy-2-methoxybenzofuran-5-yl)-3-phenylpropane-1,3-dione', '1-(2-hydroxyphenyl)-4-methylpentan-1-one ', '1,8-cineole', '1,7-Bis(4-hydroxyphenyl)-1,4-heptadien-3-one', '1,5,8-trihydroxy-3-methoxyxanthone (XD)', '1,3,6-Trihydroxy-7-methyl-9,10-anthracenedione', '1,2,3,4,6-Penta-O-galloyl-β-d-glucose', '1, 3, 7, 8-tetrahydroxyxanthone', "1'S-1'-acetoxyeugenol acetate", "1'-acetoxychavicol acetate", '(Z)-ethylidene-4,6-dimethoxycoumaran-3-one (Compound 1)', '(S)-sativan', '(E)-resveratrol 3-O-rutinoside', '(E)-caffeic acid-9-O-β-d-xylpyranosyl-(1→2)-β-d-glucopyranosyl ester', '(6S,9S)-roseoside', '(6E,10E) isopolycerasoidol', '(6E,10E) Isopolycerasoidol Methyl Ester', '(5R, 10S)-5,6,7,8-tetrahydro-8-mehtyl-5-(1-methylethyl)-2-naphthalenol', '(4α,5α,8β,10β)-4,10-dihydroxy-1,11(13)-guaidien-12,8-olide', '(3aR,4aS,5S,7aS,8S,9aR)-5-hydroxy-4a,8-dimethyl-3-methylen-decahydroazuleno[6,5-b]furan-2(3H)-on', '(3S)-7-hydroxy-8,2′-dimethoxy-4′,5′-methylenedioxyisoflavane', '(3S)-7-hydroxy-8,2′,4′-trimethoxyisoflavane', "(3S)-7,2'-Dihydroxy-8,4'-dimethoxyisoflavane", "(2S, 3''S)-5,2',6'-trihydroxy-3''-gamma,gamma-dimethylallyl-2'',2''-dimethyl-3'',4''-dihydropyrano [5'', 6'': 6, 7] flavanone", '(2S)-abyssinone I', "(2S)-5,7,2',6'-tetrahydroxy-6-lavandulylated flavanone", "(2S)-5,7,2',6'-tetrahydroxy-6,8-di (gamma,gamma-dimethylallyl) flavanone", "(2S)-5,7,2',6'-tetrahydroxy-4'-lavandulylated flavanone", "(2S)-5,2',6'-trihydroxy-6-lavandulyl-4''-(gamma,gamma-dimethylallyl)-2'',2''-dimethylpyrano-[5'',6'' : 7,8]-flavanone", "(2S)-5,2',6'-trihydroxy-2'',2''-dimethylpyrano [5'', 6'': 6, 7] flavanone", '(2R,3R)-3,4′,7-trihydroxy-3′-prenylflavane', '(20R)-O-(3)-β-D-glucopyranosyl-(1→2)-α-L-arabinopyranosyl-pregn-5-en-3β,20-diol\xa0', "(2'R)-6-(2'-acetoxytridecyl)-2-methoxy-1,4-dihydroxybenzene", "(2'R)-1-acetoxy-6-(2'-acetoxy-tridecyl)-2-methoxy-4-hydroxybenzene", '(1α,2α,8β,9β)-1,8-bis(acetyloxy)-2,9-bis(benzoyloxy)-14-hydroxy-β-dihydroagarofuran', '(-)-maackiain', '(-)-kunstleramide', '(-)-dihydrosesamin', '(-)-baphicacanthcusines B', '(-)-baphicacanthcusines A', '(-)-Xanthatin', '(-)-Oleocanthal (OC)', '(-)-Gossypol-enriched cottonseed oil [(-)-GPCSO]', '(-)-Cycloxanthochymol', '(-)-Acuminatin', '(-)-5,6-dihydro-6-undecyl-2H-pyran-2-one', '(-)-5,6-dihydro-6-tridecyl-2H-pyran-2-one', '(+/-)-trans-3-(3,4-dimethoxyphenyl)-4-[(E)-3,4-dimethoxystyryl]cyclohex-1-ene', '(+)-syringaresinol', '(+)-spiropachysine', '(+)-pinoresinol di-O-β-d-allopyranoside', '(+)-pinoresinol', '(+)-pachysandrine B', '(+)-lariciresinol', '(+)-gomisin M2', '(+)-baphicacanthcusines A', '(+)-Torreyol', '(+)-Tengerensine', '(+)-Dihydrokaempferol', '(+)-Bergenin', '(+)-1-hydroxypinoresinol', '(+)- altholactone', ' Salacia oblonga extract'];
+        
+        // Constructing the suggestion engine
+        var Phytochemical = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: Phytochemical
+        });
+
+         /* Specify maximum number of suggestions to be displayed */
+    
+        // Initializing the typeahead
+        $('.typeahead').typeahead({
+          hint: true,
+        highlight: true, /* Enable substring highlighting */
+      minLength: 1, /* Specify minimum characters required for showing result */
+      
+     },
+        {
+            name: 'Phytochemical',
+            source: Phytochemical,
+            limit:20
+        });
+    });  
+    </script>
+<style>
+
+
+
+.click_me {
+/*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+  /*background: linear-gradient(to right, #772953 0%, # 28%, #EB6536 100%,#E95420 100% );*/
+  /*background: linear-gradient(to right, #E95420 0%, #EB6536 28%, #925375 100%,#772953 100% );*/
+  /*background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);*/
+
+background-color: #378b29;
+background-image: linear-gradient(315deg, #378b29 0%, #74d680 74%);
+
+/*  background-image: linear-gradient(to top,#72afd3  0%, #37ecba  100%);*/
+/*  background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);*/
+
+  border: none;
+  color: maroon;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+
+}
+  .navbar-custom {
+    width: 100%;
+    margin: 0;
+padding: 0;
+display:flex;
+flex-direction:row;
+
+    background: #556B2F !important;
+
+
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+  color: navy;
+  padding: 0.4rem 0.4rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+  border:1px solid #bab86c;  
+
+
+}.navbar-custom {
+  background-color: navy;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: red;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+  background-color: #ff5500;
+}
+.navbar-custom .dropdown-item {
+  color: #bab86c;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #333333;
+  background-color: rgba(255,255,255,.5);
+}
+.alert-error {
+  padding: 12px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  margin-bottom: 1px;
+  color: red;
+  text-align: center;
+}
+.alert-info {
+  padding: 2px;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: black;
+  text-align: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 40px;
+   background-color:#FF0066; 
+   font-size: 25px;
+   color:peachpuff;
+   text-align: center;
+} 
+
+div#loading {
+  display: none;
+    width: 500px;
+    height:180px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    background: url(/static/Vanilla-2s-289px.gif) no-repeat;
+   position: absolute;
+    cursor: wait;
+   
+  }
+  .typeahead, .tt-query, .tt-hint {
+	border: 2px solid #CCCCCC;
+	border-radius: 8px;
+	font-size: 22px; /* Set input font size */
+	height: 30px;
+	line-height: 30px;
+	outline: medium none;
+	padding: 8px 12px;
+	width: 396px;
+  
+}
+.typeahead {
+
+  background-color: #3ee577;
+  background-image: linear-gradient(315deg, #3ee577 0%, #42fcdb 74%);
+
+
+
+}
+.typeahead:focus {
+	border: 2px solid #0097CF;
+}
+.tt-query {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+	color: #999999;
+}
+.tt-menu {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	margin-top: 12px;
+	padding: 8px 0;
+	width: 422px;
+  overflow-y: auto;
+
+}
+.tt-suggestion {
+	font-size: 16px;  /* Set suggestion dropdown font size */
+	padding: 3px 20px;
+}
+.tt-suggestion:hover {
+	cursor: pointer;
+	background-color: #0097CF;
+	color: #FFFFFF;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+
+
+.bs-example {
+	font-family: sans-serif;
+  position: relative;
+	margin: 21px;
+}
+h1 {
+    font-family: Papyrus, fantasy;
+}
+</style>
+
+  </head>
+  <body>
+   
+    <nav class="navbar navbar-expand-lg navbar-custom bg-primary py-0 nav-upper">
+      <div class="container-fluid" style="margin-top: -10px;padding-bottom: -10px;"> 
+      <!-- Brand/logo      -->
+
+        
+      <a class="navbar-brand" href="#" style="margin-top: 0px;">
+        <img src="/static/logo.png" alt="" width="70" height="90">
+      </a>
+          
+
+
+
+         <a class="navbar-brand text-center" style="margin-left: 100px;"  href="{{ url_for('index') }}"> <h1>PhytoCAT </h1> </br><p style="margin-top: -40px;"><u>PhytoC</u>hemicals <u>A</u>ffordable <u>T</u>herapeutics for Breast Cancer  </p>
+        <!--<img src="/static/phytocat.png" alt="logo" style="width:80px;height:50px; "> -->
+      </a>
+      
+      <a class="navbar-brand navbar-right" href="#" style="margin-top: -30px;">
+        <img src="/static/igib.png" alt="" width="100" height="50">
+      </a>
+
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light  py-0 nav-lower" style="background-color:#556B2F ;">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+
+
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0" > 
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "> <span style="background-color: #355E3B		;">Home</span></a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('faq1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">FAQs</span></a>
+        </li>  
+
+
+       <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('contact1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;"><span style="background-color: #355E3B		;">Contact Us</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('help1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">Help</span></a>
+        </li>
+
+
+      </ul>
+      </div>
+    </div>
+
+
+      </div>
+      <!-- Links -->
+      
+    </nav>        
+
+       
+
+    <div class="s010">
+    
+        <form method="POST"  action="/chemical" role="form" enctype="multipart/form-data">
+     
+          {{ form.csrf_token }}
+          <fieldset>
+
+          <div class="inner-form">
+            <p style="color:#ff7d4d;font-size: 21px;font-weight: bold;">Enter Phytochemical Name :</p>
+
+            <div class="input-field">
+   
+     
+
+        <input  id="search" class="typeahead tt-query tt-dropdown-menu"  spellcheck="false" autocomplete="off"  type="text"   id="Phytochemical" name="Phytochemical" style="background-color: #378b29;
+background-image: linear-gradient(315deg, #378b29 0%, #74d680 74%);
+        width:200%;"/>
+         
+         </div>
+          
+               <div class="input-field">
+                
+                <div class="group-btn">
+                  <button class="btn-delete" id="delete" style="margin-top: 10px;">CLEAR</button>
+                  <button class="btn-search" onclick="loading();" >SEARCH</button>
+                   
+                  {% for category, message in get_flashed_messages(with_categories=true) %}
+                  <p class="alert-{{ category }}" >{{ message }}</p>
+
+                    {% endfor %}   
+                </div>
+
+
+              </div>
+          </div>
+          
+        </fieldset>
+      </form>
+  
+     
+    
+  </div>
+  <script type="text/javascript">// <![CDATA[
+    function loading(){
+      $("#loading").show();
+
+
+        $("#main").hide();       
+    }
+// ]]></script>
+<footer class="text-center text-lg-start bg-body-tertiary text-muted"  >
+  <!-- Section: Links  -->
+
+
+<section class="d-flex justify-content-center justify-content-lg-between" style="background-color:#BEBEBE	; ">
+  <div class="container text-center text-md-start mt-1" >
+    <!-- Grid row -->
+    <div class="row mt-3" style="margin-bottom: -40px;">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+          <i class="fas fa-gem me-3"></i>Related Database
+        </h6>
+        <p>
+         <a href="https://cb.imsc.res.in/imppat/"  >  IMPPAT </a> 
+        </p>
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+          Related Links
+        </h6>
+        <p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/" >PubMed</a>
+        </p>
+        <p>
+          <a href="https://pubchem.ncbi.nlm.nih.gov/" >PubChem</a>
+        </p>
+                </div>
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+Database information          </h6>
+        <p>
+          <a href="{{ url_for('static', filename='Download_data_phytoCAT.tsv')  }}" >Download Data</a>
+        </p>
+                </div>
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4"  style="color: black;">Contact</h6>
+        <p><i class="fas fa-home me-3"></i> CSIR-IGIB, Mathura Road, New Delhi</p>
+       
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+</section>
+<!-- Section: Links  -->
+
+<!-- Copyright -->
+<div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05);text-decoration: underline;">
+Website copyright @ Institute of Genomics and Integrative Biology. All Right Reserved.
+  
+<!--<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>-->
+</div>
+<!-- Copyright -->
+</footer>
+
+
+  </body> 
+</html>

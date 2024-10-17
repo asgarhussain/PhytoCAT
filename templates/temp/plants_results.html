@@ -1,0 +1,295 @@
+<html>
+  <head>
+       <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0PGB0RSKC4');
+</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css1/main.css')  }}" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+  <link rel="stylesheet"  href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='crisnpr11.svg')  }}" />
+  <title>CriSNPr</title>
+
+  <script  src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
+<style>
+
+.click_me {
+/*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+  /*background: linear-gradient(to right, #772953 0%, # 28%, #EB6536 100%,#E95420 100% );*/
+  background: linear-gradient(to right, #E95420 0%, #EB6536 28%, #925375 100%,#772953 100% );
+
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+
+}
+  .navbar-custom {
+    background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );
+
+/*    background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%);*/
+    /*background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+
+
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+  color: blueviolet;
+  padding: 1rem 1rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+  border:1px solid whitesmoke;  
+
+
+}.navbar-custom {
+  background-color: blueviolet;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: red;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+  background-color: #ff5500;
+}
+.navbar-custom .dropdown-item {
+  color: #ffffff;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #333333;
+  background-color: rgba(255,255,255,.5);
+}
+.alert-error {
+  padding: 12px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  margin-bottom: 1px;
+  color: red;
+  text-align: center;
+}
+.alert-info {
+  padding: 2px;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: black;
+  text-align: center;
+}
+
+
+
+
+table.dataframe, .dataframe th, .dataframe td {
+    border:1px solid ;
+    border-bottom: 1px solid #C8C8C8;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.8em;
+    table-layout: fixed; 
+}
+
+table,  th,  td {
+    border:1px solid ;
+    border-bottom: 1px solid #C8C8C8;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.8em;
+    table-layout: fixed; 
+}
+.sgrna th  {
+background-color:#e4e4b1;
+color: #800000;
+font-weight: bold;
+
+}
+.sgrna td  {
+
+color: black;
+}
+
+.primer th {
+background-color: #e4e4b1;
+color: #800000;
+}
+
+.primer td {
+
+color: blue;
+}
+
+
+
+td:nth-child(8)	{  word-break: break-all; }
+.primer tbody>td>:nth-child(6){   word-break: break-all; }
+
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)	{ background-color:#fff; }
+
+
+
+.primer tbody>tr>:nth-child(-n+6)   {
+ color:rgb(92, 4, 95);
+
+}
+
+
+
+
+tr:hover            { background-color: #ffff99;}
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 70px;
+   background-color: #2c6dd5; 
+   font-size: 25px;
+   color:peachpuff;
+   text-align: center;
+} 
+
+
+
+
+
+</style>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-sm navbar-custom bg-primary ">
+      <!-- Brand/logo -->
+     <!-- <a class="navbar-brand" href="http://jatayuv2.igib.res.in/">
+        <img src="/static/images/jatayu1.png" alt="logo" style="width:60px; "> 
+      </a>-->
+      
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item"  style="padding-left: 50px;"  >
+          <a class="nav-link" href="{{ url_for('index') }}" style="color: blueviolet; padding: 2px;" > 
+            <img src= "/static/crisnpr11b.png" alt="CriSNPr" style="width: 60px;height: 60px;"> 
+           </a>
+         </li>
+        </ul>
+      <ul class="navbar-nav ms-auto">
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+      </ul>
+    </nav>
+
+   <!-- <div id="mySeqViewer1" class="SeqViewerApp" data-autoload> <a href="?embedded=true&appname=testapp1&id=NC_000001"></a> </div>-->
+ 
+   
+   
+  <div class="s010" >
+        
+    <div class="table-responsive-md" style="overflow: fixed; padding-top: 5px; margin-top: 70px; padding-left: 40px;font-size: 25px; font-weight: bold; font-family: Poppins;" >
+          <div id="sviewer_xahvx" class="SeqViewerApp" data-autoload style="margin-bottom: 25px;">
+            <a href="?embedded=true&id={{chrom}}&tracks=[key:sequence_track,name:T15993,display_name:Sequence,id:T15993,dbname:GenBank,category:Sequence,subcategory:Assembly,annots:NA,ShowLabel:false,ColorGaps:false,shown:true,order:1][key:gene_model_track,name:T2275599,display_name:Genes\, NCBI Homo sapiens Annotation Release 109.20211119,id:T2275599,dbname:SADB,category:Genes,subcategory:NCBI Genes,annots:NA000281575.1,Options:GeneOnly,CDSProductFeats:false,NtRuler:true,AaRuler:true,HighlightMode:2,ShowLabel:true,shown:true,order:53][key:SNP_track,name:T2164428,display_name:Clinical\, dbSNP b155 v2,id:T2164428,dbname:VDB,category:Variation,subcategory:dbSNP Build 155 (Homo sapiens Annotation Release 109),annots:NA000193272.7\2320,Layout:Adaptive,shown:true,order:113][key:SNP_track,name:T2164437,display_name:Live RefSNPs\, dbSNP b155 v2,id:T2164437,dbname:VDB,category:Variation,subcategory:dbSNP Build 155 (Homo sapiens Annotation Release 109),annots:NA000193272.7\2317,Layout:Adaptive,shown:true,order:150,comments:{{comments1}} |{{var_pos}}][key:feature_track,name: primer ,display_name:PRIMER,Layout:Adaptive,LinkedFeat:Packed,read_range:44372360 ]&assm_context=GCF_000001405.39&mk={{coo1}}|crRNA|green,{{coo1_cas12}}|Cas12|red,{{primer1_fw}}|Primer1 Forward|blue,{{primer1_rw}}|Primer1 Reverse|blue,{{primer2_fw}}|Primer2 Forward|red,{{primer2_rw}}|Primer2 Reverse|red,|08&v={{coo}}&c=666699&select=null&slim=0&appname=CriSNPr"></a>
+          
+          </div>
+        
+        <div class="container"  >
+          
+            <div class="row justify-content-md-center"style="margin-left:50px;margin-top: 40px;  ">
+              <div class="col-md-auto  bg-contain border-dark rounded rounded-3 border border-2"style="margin-bottom:10px;color:brown;background-color:#F4D03F; ">
+              <!--  background-color:#34c6eb;-->
+              <h3  style="font-size:20px;margin-top: 5px;" >{{Feature}} </a></h3 >
+              </div>
+              
+             </div>
+        </div>
+        
+        <table class="sgrna"> 
+          <tr>
+         {% for column in selectdf.columns %}
+         <th>{{ column }}</th>
+         {% endfor %}
+       </tr>
+       {% for idx, row in selectdf.iterrows() %}
+       <tr>
+
+           {% for colname in selectdf.columns %}
+           {% if loop.index == 1 %} 
+           <td class="off"><a href="{{ url_for('phytochemical',my_var=row[0]) }}" target="_blank"> {{row[0]}} </a></td>
+           {% else %}
+
+           <td>{{row[colname]}}</td>
+           {% endif %}
+           {% endfor %}
+       </tr>
+       {% endfor %}
+
+      </table>
+
+           
+           
+    </div>
+
+  </div>
+
+
+            
+          
+    </div>
+    <script src="static/js1/extention/choices.js"></script>
+
+
+  </body> 
+</html>

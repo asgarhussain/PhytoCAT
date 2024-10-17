@@ -1,0 +1,452 @@
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PGB0RSKC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0PGB0RSKC4');
+</script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css1/main.css')  }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/bootstrap.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href= "{{ url_for('static', filename='phytocat.png')  }}" />
+  <title>PhytoCAT</title>
+
+	
+
+
+  <!-- Custom styles for this template -->
+  <link href="Sticky%20Footer%20Template%20for%20Bootstrap_files/sticky-footer.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+        $(document).on('click','.click_me',function(e){
+          e.preventDefault();
+          var search_val = $(this).attr('data-value');
+          
+          $('#search').val(search_val);
+        });
+        $(document).on('click','.btn-delete',function(e){
+          $('#search').val('');
+        });
+        
+      });
+  </script>   
+
+<style>
+
+
+
+.click_me {
+  background: linear-gradient(to right, #f97171 0%, #f99192 28%, #8ad6cc 91%, #b2eee6 100%);
+   
+/*  background:  linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+  
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  
+
+}
+  .navbar-custom {
+    width: 100%;
+    margin: 0;
+padding: 0;
+display:flex;
+flex-direction:row;
+
+    background: #556B2F !important;
+
+   /* background: linear-gradient(to right, #f97171 0%, #f99192 28%, #8ad6cc 91%, #b2eee6 100%);*/
+
+   /* background: linear-gradient(to right, #772953 0%, #925375 28%, #EB6536 100%,#E95420 100% );*/
+/*   background: linear-gradient(to right,    #ff4b5a 0%,  #ff4b5a 28%, #2c6dd5 91%, #2c6dd5 100%);*/
+/*  background: rgb(34,195,145);*/
+/*background: linear-gradient(0deg, rgba(34,195,145,1) 0%, rgba(45,196,253,1) 100%);*/
+/*background-color: #74EBD5;*/
+
+/*background-color : #556B2F; */
+/*background: repeating-linear-gradient(90deg, #006600  , #00cc00 7%, #004d00 15%);*/
+
+/*background:linear-gradient(to top, transparent, #006600 100%),#004d00 repeating-linear-gradient(90deg, #006600  , #00cc00 7%, #004d00 15%);*/
+
+
+/*background-image: repeating-linear-gradient(90deg,red,yellow 7%,green 10%);*/
+
+/*background: linear-gradient(to right, #16A085 0%, #F4D03F 28%, #16A085 100%);*defaultt/
+
+/*background-image: linear-gradient(to right #16A085 0%, #F4D03F 28%, #F4D03F 55%, #16A085 100%);*/
+
+/*background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);*/
+
+
+/*background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);*/
+
+
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+  color: navy;
+  padding: 0.4rem 0.4rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+  border:1px solid #bab86c;  
+
+
+}.navbar-custom {
+  background-color: navy;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: red;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #bab86c;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+  background-color: #ff5500;
+}
+.navbar-custom .dropdown-item {
+  color: #bab86c;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #333333;
+  background-color: rgba(255,255,255,.5);
+}
+.alert-error {
+  padding: 12px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  margin-bottom: 1px;
+  color: red;
+  text-align: center;
+}
+.alert-info {
+  padding: 2px;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: black;
+  text-align: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 40px;
+   background-color:#FF0066; 
+   font-size: 25px;
+   color:peachpuff;
+   text-align: center;
+} 
+/*.body{padding: 10px;}*/
+h1 {
+    font-family: Papyrus, fantasy;
+}
+</style>
+
+  </head>
+  <body>
+   
+  
+    <nav class="navbar navbar-expand-lg navbar-custom bg-primary py-0 nav-upper">
+      <div class="container-fluid" style="margin-top: -10px;padding-bottom: -10px;"> 
+      <!-- Brand/logo      -->
+
+        
+      <a class="navbar-brand" href="#" style="margin-top: 0px;">
+        <img src="/static/logo.png" alt="" width="70" height="90">
+      </a>
+          
+
+
+
+         <a class="navbar-brand text-center" style="margin-left: 100px;"  href="{{ url_for('index') }}"> <h1>PhytoCAT </h1> </br><p style="margin-top: -40px;"><u>P</u>hytochemicals for <u>C</u>ancer <u>A</u>ffordable <u>T</u>herapeutics</p>
+        <!--<img src="/static/phytocat.png" alt="logo" style="width:80px;height:50px; "> -->
+      </a>
+      
+      <a class="navbar-brand navbar-right" href="#" style="margin-top: -30px;">
+        <img src="/static/igib.png" alt="" width="100" height="50">
+      </a>
+
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-custom bg-primary py-0 nav-lower">
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+       <ul class="navbar-nav ml-auto" > 
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "> <span style="background-color: #355E3B		;">Home</span></a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('faq1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">FAQs</span></a>
+        </li>  
+
+
+       <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('contact1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;"><span style="background-color: #355E3B		;">Contact Us</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('help1') }}" style="color: #FFBF00	;font-size: 20px;font-family: 'Gill Sans', sans-serif;          "><span style="background-color: #355E3B		;">Help</span></a>
+        </li>
+
+
+      </ul>
+      </div>
+    </div>
+
+
+      </div>
+      <!-- Links -->
+      
+    </nav>
+
+
+    <div id="container-fluid" style="height: 70px;background-color: #A9A9A9	;" >  
+
+  
+    <!--<h4 style="background-color: whitesmoke;color: #84377D;  width: 120px;margin-left: 650px;    ">    Search By   </h4> -->
+    
+  <div class="row justify-content-md-center" style="padding-top:12px ;">
+        
+         <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('form') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >Phytochemical Name  </h6> </a>
+        </div> 
+         <div class="col-md-auto " >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('form2') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >
+            
+            Gene Name</h6> </a>
+        </div>
+
+        <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('form1') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >  Plant Name  </h6> </a>
+        </div> 
+        <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('alphabatical') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  > Alphabetically </h6> </a>
+        </div>
+        <div class="col-md-auto" >
+          <a   class="btn btn-primary"  role="button" href="{{ url_for('catagory',catagory='All') }}" style="background-color:#4F7942 ;border-color: #355E3B;">
+            <h6 style="font-size: 20;color: #FFD580	; "  >
+             Entity List   </h6> </a>
+         </div>
+     
+    
+         
+
+    </div> 
+
+      
+
+
+</div>
+
+    <div id="container-fluid" style="margin-bottom: 10px;padding-top: 30px; padding-left: 0px;margin-left: 70px;margin-right: 70px;" >
+
+
+
+
+    
+
+
+
+   <div class="row justify-content-md-center" >
+      <div class="col-sm-4" style="margin-top: 100px;">
+        
+          
+
+        <a class="nav-link"  style="margin-left: 30px;margin-right: auto;">
+          <img src="/static/tree.png" alt="" width="300" height="400" usemap="#workmap">
+
+          <map name="workmap">
+            <area shape="rect" coords="10,20,70,40" alt="Alkaloid" href="{{ url_for('catagory',catagory='Alkaloid') }}">
+            <area shape="rect" coords="120,20,260,40" alt="Sesquiterpene lactones" href="{{ url_for('catagory',catagory='Sesquiterpene') }}">
+            <area shape="rect" coords="10,40,70,80" alt="Coumarin" href="{{ url_for('catagory',catagory='Coumarin') }}">
+            <area shape="rect" coords="120,40,190,80" alt="Terpenoid" href="{{ url_for('catagory',catagory='Terpenoid') }}">
+
+            <area shape="rect" coords="8,60,70,120" alt="Flavonoid" href="{{ url_for('catagory',catagory='flav') }}">
+            <area shape="rect" coords="120,60,270,130" alt="Triterpenoid saponin" href="{{ url_for('catagory',catagory='Triterpenoid saponin') }}">
+
+            <area shape="rect" coords="8,172,70,178" alt="Lignan" href="{{ url_for('catagory',catagory='Lignan') }}">
+            <area shape="rect" coords="120,170,190,180" alt="Xanthone" href="{{ url_for('catagory',catagory='Xanthone') }}">
+
+            <area shape="rect" coords="8,228,70,240" alt="Quinone" href="{{ url_for('catagory',catagory='Quinone') }}">
+            <area shape="rect" coords="120,228,210,240" alt="Miscellaneous" href="{{ url_for('catagory',catagory='Miscellaneous') }}">
+
+            <area shape="rect" coords="8,283,70,292" alt="Saponin" href="{{ url_for('catagory',catagory='Saponin') }}">
+            <area shape="rect" coords="120,283,190,292" alt="Unknown" href="{{ url_for('catagory',catagory='Unknown') }}">
+
+            <area shape="rect" coords="8,325,70,335" alt="extract" href="{{ url_for('catagory',catagory='extract') }}">
+            <area shape="rect" coords="120,330,220,340" alt="Essential oil" href="{{ url_for('catagory',catagory='Essential oil') }}">
+            
+
+          </map>
+
+        </a>
+         
+        </div> 
+
+
+
+
+
+
+
+
+      <div class="col-sm-7" style="margin-right: auto;margin-left: auto;" >
+    
+        <a  style="margin-left: 100px;margin-top: -100px;">
+          <img src="/static/leafphyto.png" alt="" width="300" height="100">
+        </a>
+
+        
+
+        <p  class="lead"  style="font-size: 18;" >A comprehensive collection of plant derived natural products including, phytochemicals, essential oils, plant extracts against breast cancer.</p>
+               
+        <p class="lead" style="font-size: 18;">
+                  <strong><em>PhytoCAT</em> </strong>is a curated repository of <u><strong>P</u></strong>hytochemicals for <strong><u>C</u></strong>ancer <strong><u>A</u></strong>ffordable <strong><u>T</u></strong>herapeutics that exhibit activity against breast cancer. 
+                  It contains 2147 entries and each phytochemical provides information on its source, structure, properties (physical, elemental, and topological), cancer type, cell lines, inhibitory values (IC50), molecular targets, their geographical availability, and target pathways. </p>
+                <p  class="lead" style="font-size: 18;">
+                  <strong><em> PhytoCAT</em> </strong>concentrates on anti-cancer natural compounds found in plants only with a particular focus on breast cancer. PhytoCAT is
+                unique in providing bioactivities of these natural compounds against different cancer cell lines, mice model targeting genes, proteins,
+                and signaling pathways. Geographical availability and parts of the source plant from which phytochemical is extracted make it more beneficial to be taken for further studies. It includes data extracted from PubMed by text mining of 29020 abstracts. Each record in the PhytoCAT is also hyperlinked to various other similar databases like PubChem, Plants of the World Online (POWO), and PubMed. </p>
+    
+      </div>
+    </div>
+
+
+
+
+
+
+           
+
+
+  </div>
+
+  
+
+
+    <!--  <div class="footer" >       <span  >
+        Powered by , CSIR-IGIB</span> <br><span style="font-size: 20px;">Visitors : {{visitors}}</span>  
+       </div> -->
+    
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <!-- Section: Links  -->
+
+
+  <section class="d-flex justify-content-center justify-content-lg-between" style="background-color:#BEBEBE	;">
+    <div class="container text-center text-md-start mt-1">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+            <i class="fas fa-gem me-3"></i>Related Database
+          </h6>
+          <p>
+           <a href="https://webs.iiitd.edu.in/raghava/npact/"  >  NPACT </a> 
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+            Related Links
+          </h6>
+          <p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/" >PubMed</a>
+          </p>
+          <p>
+            <a href="https://pubchem.ncbi.nlm.nih.gov/" >PubChem</a>
+          </p>
+                  </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4" style="color: black;">
+Database information          </h6>
+          <p>
+            <a href="#!" >Download Data</a>
+          </p>
+                  </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4"  style="color: black;">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> CSIR-IGIB, Mathura Road, New Delhi</p>
+         
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05);text-decoration: underline;">
+Website copyright @ Institute of Genomics and Integrative Biology. All Right Reserved.
+    
+<!--<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>-->
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer --> 
+
+
+</body> 
+</html>
